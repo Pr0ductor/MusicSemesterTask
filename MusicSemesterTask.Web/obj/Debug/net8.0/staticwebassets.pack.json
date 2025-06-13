@@ -1,0 +1,545 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/obj/Debug/net8.0/scopedcss/projectbundle/MusicSemesterTask.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets/MusicSemesterTask.Web.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/css/site.min.css",
+      "PackagePath": "staticwebassets/assets/css/site.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_a.png",
+      "PackagePath": "staticwebassets/assets/img/_a.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_b.png",
+      "PackagePath": "staticwebassets/assets/img/_b.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_c.png",
+      "PackagePath": "staticwebassets/assets/img/_c.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_d.png",
+      "PackagePath": "staticwebassets/assets/img/_d.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_e.png",
+      "PackagePath": "staticwebassets/assets/img/_e.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_f.png",
+      "PackagePath": "staticwebassets/assets/img/_f.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_g.png",
+      "PackagePath": "staticwebassets/assets/img/_g.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_h.png",
+      "PackagePath": "staticwebassets/assets/img/_h.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_music.png",
+      "PackagePath": "staticwebassets/assets/img/_music.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/_video.png",
+      "PackagePath": "staticwebassets/assets/img/_video.png"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a0.jpg",
+      "PackagePath": "staticwebassets/assets/img/a0.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a1.jpg",
+      "PackagePath": "staticwebassets/assets/img/a1.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a10.jpg",
+      "PackagePath": "staticwebassets/assets/img/a10.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a11.jpg",
+      "PackagePath": "staticwebassets/assets/img/a11.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a12.jpg",
+      "PackagePath": "staticwebassets/assets/img/a12.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a13.jpg",
+      "PackagePath": "staticwebassets/assets/img/a13.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a14.jpg",
+      "PackagePath": "staticwebassets/assets/img/a14.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a15.jpg",
+      "PackagePath": "staticwebassets/assets/img/a15.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a16.jpg",
+      "PackagePath": "staticwebassets/assets/img/a16.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a18.jpg",
+      "PackagePath": "staticwebassets/assets/img/a18.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a19.jpg",
+      "PackagePath": "staticwebassets/assets/img/a19.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a2.jpg",
+      "PackagePath": "staticwebassets/assets/img/a2.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a20.jpg",
+      "PackagePath": "staticwebassets/assets/img/a20.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a3.jpg",
+      "PackagePath": "staticwebassets/assets/img/a3.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a4.jpg",
+      "PackagePath": "staticwebassets/assets/img/a4.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a5.jpg",
+      "PackagePath": "staticwebassets/assets/img/a5.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a6.jpg",
+      "PackagePath": "staticwebassets/assets/img/a6.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a7.jpg",
+      "PackagePath": "staticwebassets/assets/img/a7.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a8.jpg",
+      "PackagePath": "staticwebassets/assets/img/a8.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/a9.jpg",
+      "PackagePath": "staticwebassets/assets/img/a9.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b1.jpg",
+      "PackagePath": "staticwebassets/assets/img/b1.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b10.jpg",
+      "PackagePath": "staticwebassets/assets/img/b10.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b11.jpg",
+      "PackagePath": "staticwebassets/assets/img/b11.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b14.jpg",
+      "PackagePath": "staticwebassets/assets/img/b14.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b15.jpg",
+      "PackagePath": "staticwebassets/assets/img/b15.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b16.jpg",
+      "PackagePath": "staticwebassets/assets/img/b16.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b17.jpg",
+      "PackagePath": "staticwebassets/assets/img/b17.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b18.jpg",
+      "PackagePath": "staticwebassets/assets/img/b18.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b19.jpg",
+      "PackagePath": "staticwebassets/assets/img/b19.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b2.jpg",
+      "PackagePath": "staticwebassets/assets/img/b2.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b20.jpg",
+      "PackagePath": "staticwebassets/assets/img/b20.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b3.jpg",
+      "PackagePath": "staticwebassets/assets/img/b3.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b4.jpg",
+      "PackagePath": "staticwebassets/assets/img/b4.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b5.jpg",
+      "PackagePath": "staticwebassets/assets/img/b5.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b6.jpg",
+      "PackagePath": "staticwebassets/assets/img/b6.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b7.jpg",
+      "PackagePath": "staticwebassets/assets/img/b7.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b8.jpg",
+      "PackagePath": "staticwebassets/assets/img/b8.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/b9.jpg",
+      "PackagePath": "staticwebassets/assets/img/b9.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c0.jpg",
+      "PackagePath": "staticwebassets/assets/img/c0.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c1.jpg",
+      "PackagePath": "staticwebassets/assets/img/c1.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c10.jpg",
+      "PackagePath": "staticwebassets/assets/img/c10.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c11.jpg",
+      "PackagePath": "staticwebassets/assets/img/c11.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c12.jpg",
+      "PackagePath": "staticwebassets/assets/img/c12.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c13.jpg",
+      "PackagePath": "staticwebassets/assets/img/c13.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c14.jpg",
+      "PackagePath": "staticwebassets/assets/img/c14.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c15.jpg",
+      "PackagePath": "staticwebassets/assets/img/c15.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c16.jpg",
+      "PackagePath": "staticwebassets/assets/img/c16.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c17.jpg",
+      "PackagePath": "staticwebassets/assets/img/c17.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c18.jpg",
+      "PackagePath": "staticwebassets/assets/img/c18.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c19.jpg",
+      "PackagePath": "staticwebassets/assets/img/c19.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c2.jpg",
+      "PackagePath": "staticwebassets/assets/img/c2.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c20.jpg",
+      "PackagePath": "staticwebassets/assets/img/c20.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c3.jpg",
+      "PackagePath": "staticwebassets/assets/img/c3.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c4.jpg",
+      "PackagePath": "staticwebassets/assets/img/c4.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c5.jpg",
+      "PackagePath": "staticwebassets/assets/img/c5.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c6.jpg",
+      "PackagePath": "staticwebassets/assets/img/c6.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c7.jpg",
+      "PackagePath": "staticwebassets/assets/img/c7.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c8.jpg",
+      "PackagePath": "staticwebassets/assets/img/c8.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/c9.jpg",
+      "PackagePath": "staticwebassets/assets/img/c9.jpg"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/js/site.min.js",
+      "PackagePath": "staticwebassets/assets/js/site.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.MusicSemesterTask.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.MusicSemesterTask.Web.props",
+      "PackagePath": "build\\MusicSemesterTask.Web.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.MusicSemesterTask.Web.props",
+      "PackagePath": "buildMultiTargeting\\MusicSemesterTask.Web.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.MusicSemesterTask.Web.props",
+      "PackagePath": "buildTransitive\\MusicSemesterTask.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

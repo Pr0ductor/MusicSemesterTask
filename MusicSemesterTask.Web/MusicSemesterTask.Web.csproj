@@ -1,0 +1,116 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>MusicSemesterTask.Web</AssemblyName>
+        <RootNamespace>MusicSemesterTask.Web</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\assets\css\site.min.css" />
+      <None Include="wwwroot\assets\img\a0.jpg" />
+      <None Include="wwwroot\assets\img\a1.jpg" />
+      <None Include="wwwroot\assets\img\a10.jpg" />
+      <None Include="wwwroot\assets\img\a11.jpg" />
+      <None Include="wwwroot\assets\img\a12.jpg" />
+      <None Include="wwwroot\assets\img\a13.jpg" />
+      <None Include="wwwroot\assets\img\a14.jpg" />
+      <None Include="wwwroot\assets\img\a15.jpg" />
+      <None Include="wwwroot\assets\img\a16.jpg" />
+      <None Include="wwwroot\assets\img\a18.jpg" />
+      <None Include="wwwroot\assets\img\a19.jpg" />
+      <None Include="wwwroot\assets\img\a2.jpg" />
+      <None Include="wwwroot\assets\img\a20.jpg" />
+      <None Include="wwwroot\assets\img\a3.jpg" />
+      <None Include="wwwroot\assets\img\a4.jpg" />
+      <None Include="wwwroot\assets\img\a5.jpg" />
+      <None Include="wwwroot\assets\img\a6.jpg" />
+      <None Include="wwwroot\assets\img\a7.jpg" />
+      <None Include="wwwroot\assets\img\a8.jpg" />
+      <None Include="wwwroot\assets\img\a9.jpg" />
+      <None Include="wwwroot\assets\img\b1.jpg" />
+      <None Include="wwwroot\assets\img\b10.jpg" />
+      <None Include="wwwroot\assets\img\b11.jpg" />
+      <None Include="wwwroot\assets\img\b14.jpg" />
+      <None Include="wwwroot\assets\img\b15.jpg" />
+      <None Include="wwwroot\assets\img\b16.jpg" />
+      <None Include="wwwroot\assets\img\b17.jpg" />
+      <None Include="wwwroot\assets\img\b18.jpg" />
+      <None Include="wwwroot\assets\img\b19.jpg" />
+      <None Include="wwwroot\assets\img\b2.jpg" />
+      <None Include="wwwroot\assets\img\b20.jpg" />
+      <None Include="wwwroot\assets\img\b3.jpg" />
+      <None Include="wwwroot\assets\img\b4.jpg" />
+      <None Include="wwwroot\assets\img\b5.jpg" />
+      <None Include="wwwroot\assets\img\b6.jpg" />
+      <None Include="wwwroot\assets\img\b7.jpg" />
+      <None Include="wwwroot\assets\img\b8.jpg" />
+      <None Include="wwwroot\assets\img\b9.jpg" />
+      <None Include="wwwroot\assets\img\c0.jpg" />
+      <None Include="wwwroot\assets\img\c1.jpg" />
+      <None Include="wwwroot\assets\img\c10.jpg" />
+      <None Include="wwwroot\assets\img\c11.jpg" />
+      <None Include="wwwroot\assets\img\c12.jpg" />
+      <None Include="wwwroot\assets\img\c13.jpg" />
+      <None Include="wwwroot\assets\img\c14.jpg" />
+      <None Include="wwwroot\assets\img\c15.jpg" />
+      <None Include="wwwroot\assets\img\c16.jpg" />
+      <None Include="wwwroot\assets\img\c17.jpg" />
+      <None Include="wwwroot\assets\img\c18.jpg" />
+      <None Include="wwwroot\assets\img\c19.jpg" />
+      <None Include="wwwroot\assets\img\c2.jpg" />
+      <None Include="wwwroot\assets\img\c20.jpg" />
+      <None Include="wwwroot\assets\img\c3.jpg" />
+      <None Include="wwwroot\assets\img\c4.jpg" />
+      <None Include="wwwroot\assets\img\c5.jpg" />
+      <None Include="wwwroot\assets\img\c6.jpg" />
+      <None Include="wwwroot\assets\img\c7.jpg" />
+      <None Include="wwwroot\assets\img\c8.jpg" />
+      <None Include="wwwroot\assets\img\c9.jpg" />
+      <None Include="wwwroot\assets\img\_a.png" />
+      <None Include="wwwroot\assets\img\_b.png" />
+      <None Include="wwwroot\assets\img\_c.png" />
+      <None Include="wwwroot\assets\img\_d.png" />
+      <None Include="wwwroot\assets\img\_e.png" />
+      <None Include="wwwroot\assets\img\_f.png" />
+      <None Include="wwwroot\assets\img\_g.png" />
+      <None Include="wwwroot\assets\img\_h.png" />
+      <None Include="wwwroot\assets\img\_music.png" />
+      <None Include="wwwroot\assets\img\_video.png" />
+      <None Include="wwwroot\assets\js\site.min.js" />
+      <None Include="wwwroot\index.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\Playlists\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\MusicSemesterTask.Application\MusicSemesterTask.Application.csproj" />
+      <ProjectReference Include="..\Core\MusicSemesterTask.Domain\MusicSemesterTask.Domain.csproj" />
+      <ProjectReference Include="..\Infrastructure\MusicSemesterTask.Infrastructure\MusicSemesterTask.Infrastructure.csproj" />
+      <ProjectReference Include="..\Infrastructure\MusicSemesterTask.Persistence\MusicSemesterTask.Persistence.csproj" />
+      <ProjectReference Include="..\Shared\MusicSemesterTask.Shared\MusicSemesterTask.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.8" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+  </ItemGroup>
+
+</Project>

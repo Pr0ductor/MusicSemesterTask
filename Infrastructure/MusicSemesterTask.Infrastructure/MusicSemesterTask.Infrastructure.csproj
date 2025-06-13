@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Market.Infrastructure</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Extensions\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\MusicSemesterTask.Application\MusicSemesterTask.Application.csproj" />
+      <ProjectReference Include="..\..\Core\MusicSemesterTask.Domain\MusicSemesterTask.Domain.csproj" />
+      <ProjectReference Include="..\..\Shared\MusicSemesterTask.Shared\MusicSemesterTask.Shared.csproj" />
+      <ProjectReference Include="..\MusicSemesterTask.Persistence\MusicSemesterTask.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>

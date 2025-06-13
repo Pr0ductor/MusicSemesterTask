@@ -1,0 +1,17 @@
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Domain.deps.json
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Domain.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Domain.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Shared.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Shared.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.csproj.AssemblyReference.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.AssemblyInfoInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.AssemblyInfo.cs
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.csproj.CoreCompileInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSem.7078739B.Up2Date
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/refint/MusicSemesterTask.Domain.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/ref/MusicSemesterTask.Domain.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/bin/Debug/net8.0/MusicSemesterTask.Domain.runtimeconfig.json
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/Debug/net8.0/MusicSemesterTask.Domain.genruntimeconfig.cache

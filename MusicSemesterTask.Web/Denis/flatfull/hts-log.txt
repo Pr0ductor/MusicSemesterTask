@@ -1,0 +1,11 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 17 May 2025 12:17:39 at https://flatfull.com/themes/basik/html/music.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://flatfull.com/themes/basik/html/music.html
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F  -%F  -%l "ru, en, *" https://flatfull.com/themes/basik/html/music.html -O1 "C:\Users\andre\Desktop\Denis\flatfull" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://flatfull.com/themes/basik/html/music.html )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 4 seconds : 157 links scanned, 156 files written (8317499 bytes overall) [6158927 bytes received at 96233 bytes/sec], 2842847 bytes transferred using HTTP compression in 84 files, ratio 22%, 39.2 requests per connection
+(No errors, 0 warnings, 0 messages)

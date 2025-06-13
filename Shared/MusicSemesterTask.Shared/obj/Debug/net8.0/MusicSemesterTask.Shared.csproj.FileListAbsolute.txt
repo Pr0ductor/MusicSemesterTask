@@ -1,0 +1,11 @@
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/bin/Debug/net8.0/MusicSemesterTask.Shared.deps.json
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/bin/Debug/net8.0/MusicSemesterTask.Shared.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/bin/Debug/net8.0/MusicSemesterTask.Shared.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.AssemblyInfoInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.AssemblyInfo.cs
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.csproj.CoreCompileInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/refint/MusicSemesterTask.Shared.dll
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/MusicSemesterTask.Shared.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/Debug/net8.0/ref/MusicSemesterTask.Shared.dll
