@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicSemesterTask.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c7cf814d93d261ed94dabf3bae85a0c67506692")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicSemesterTask.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicSemesterTask.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

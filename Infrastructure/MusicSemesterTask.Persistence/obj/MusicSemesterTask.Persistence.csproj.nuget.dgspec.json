@@ -13,6 +13,7 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -50,6 +51,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[8.0.8-preview.5.25277.114, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -90,6 +95,7 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -131,6 +137,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[8.0.8-preview.5.25277.114, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -176,6 +186,7 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Persistence/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -228,6 +239,10 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[8.0.8-preview.5.25277.114, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -237,6 +252,20 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[10.0.0-preview.5.25277.114, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[10.0.0-preview.5.25277.114, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -272,6 +301,7 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -301,6 +331,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[8.0.8-preview.5.25277.114, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

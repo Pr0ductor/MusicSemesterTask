@@ -17,10 +17,23 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// Добавляем SignalR
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.User.RequireUniqueEmail = true;
+
+    // Настройка входа по Email
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+    options.SignIn.RequireConfirmedEmail = false;
+});
+
 builder.Services.AddSignalR();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+
+// SignalR Hub
+app.MapHub<NotificationHub>("/notificationHub");
 
 if (!app.Environment.IsDevelopment())
 {
@@ -31,6 +44,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+// Identity Middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -38,8 +53,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-// Маршрут для SignalR
-app.MapHub<NotificationHub>("/notificationHub");
 
 app.Run();

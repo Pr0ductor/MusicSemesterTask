@@ -1,4 +1,5 @@
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Application.deps.json
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Application.runtimeconfig.json
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Application.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Application.pdb
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Domain.dll
@@ -10,10 +11,10 @@
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.AssemblyInfoInputs.cache
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.AssemblyInfo.cs
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.csproj.CoreCompileInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.sourcelink.json
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSem.D0310D58.Up2Date
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/refint/MusicSemesterTask.Application.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.pdb
-/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/ref/MusicSemesterTask.Application.dll
-/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/bin/Debug/net8.0/MusicSemesterTask.Application.runtimeconfig.json
 /Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/MusicSemesterTask.Application.genruntimeconfig.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/Debug/net8.0/ref/MusicSemesterTask.Application.dll

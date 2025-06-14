@@ -1,4 +1,5 @@
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/bin/Debug/net8.0/MusicSemesterTask.Infrastructure.deps.json
+/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/bin/Debug/net8.0/MusicSemesterTask.Infrastructure.runtimeconfig.json
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/bin/Debug/net8.0/MusicSemesterTask.Infrastructure.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/bin/Debug/net8.0/MusicSemesterTask.Infrastructure.pdb
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/bin/Debug/net8.0/MusicSemesterTask.Application.dll
@@ -14,8 +15,10 @@
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.AssemblyInfoInputs.cache
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.AssemblyInfo.cs
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.sourcelink.json
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSem.EC7F0F93.Up2Date
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/refint/MusicSemesterTask.Infrastructure.dll
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.pdb
+/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/MusicSemesterTask.Infrastructure.genruntimeconfig.cache
 /Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/Debug/net8.0/ref/MusicSemesterTask.Infrastructure.dll
