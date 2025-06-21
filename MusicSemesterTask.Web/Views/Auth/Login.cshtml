@@ -2,18 +2,104 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Вход</h2>
+<style>
+    /* Основной контейнер */
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
 
-<form asp-action="Login" method="post">
-    <div class="form-group">
-        <label>Логин</label>
-        <input name="username" class="form-control" />
+    /* Форма входа */
+    .login-form {
+        max-width: 400px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Заголовок */
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Элементы формы */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Ссылка на регистрацию */
+    .register-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .register-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .register-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>Login</h2>
+
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <div class="register-link">
+            Don't have an account? <a href="~/Auth/Register">Sign Up</a>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label>Пароль</label>
-        <input type="password" name="password" class="form-control" />
-    </div>
-
-    <button type="submit" class="btn btn-success">Войти</button>
-</form>
+</div>

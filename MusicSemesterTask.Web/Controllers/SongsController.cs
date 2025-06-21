@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
 using MusicSemesterTask.Web.Hubs;
@@ -48,23 +49,33 @@ namespace MusicSemesterTask.Web.Controllers
             }
             return View(song);
         }
-
+        
         [HttpPost]
-        public IActionResult LikeSong(int songId)
+        public async Task<IActionResult> LikeSong(int songId)
         {
-            var song = _context.Songs.Find(songId);
-            if (song == null) return NotFound();
+            var song = await _context.Songs
+                .Include(s => s.LikedByUsers)
+                .FirstOrDefaultAsync(s => s.Id == songId);
 
-            var user = _userManager.GetUserAsync(User).Result;
-            if (user == null) return Unauthorized();
+            if (song == null)
+                return NotFound();
 
-            if (!song.LikedByUsers.Contains(user))
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            if (!song.LikedByUsers.Any(u => u.Id == user.Id))
             {
                 song.LikedByUsers.Add(user);
-                _context.SaveChanges();
+            }
+            else
+            {
+                song.LikedByUsers.Remove(user);
             }
 
-            return Ok();
+            await _context.SaveChangesAsync();
+
+            return Ok(new { likesCount = song.LikedByUsers.Count });
         }
     }
 }

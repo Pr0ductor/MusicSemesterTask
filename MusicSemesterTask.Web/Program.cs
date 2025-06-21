@@ -2,29 +2,39 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
+using MusicSemesterTask.Persistence.Repositories;
 using MusicSemesterTask.Web.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to container.
+// Регистрация репозиториев
+builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
+
+
+// Добавление служб
 builder.Services.AddControllersWithViews();
 
-// Identity + Roles
+// Настройка Identity
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        options.Password.RequireDigit = true;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequiredLength = 6;
+
+        options.User.RequireUniqueEmail = true;
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.Configure<IdentityOptions>(options =>
+builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.SignIn.RequireConfirmedAccount = false;
-    options.User.RequireUniqueEmail = true;
-
-    // Настройка входа по Email
-    options.SignIn.RequireConfirmedPhoneNumber = false;
-    options.SignIn.RequireConfirmedEmail = false;
+    options.LoginPath = "/Auth/Login";
+    options.AccessDeniedPath = "/Home/AccessDenied";
 });
 
 builder.Services.AddSignalR();

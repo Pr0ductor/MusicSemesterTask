@@ -135,27 +135,29 @@
 					</a>
 				</li><!-- User dropdown menu -->
 				<!-- Меню пользователя -->
-				<li class="nav-item dropdown">
-					<a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center px-2 text-color">
-						<span class="dropdown-toggle mx-2 d-none l-h-1x d-lg-block text-right">Jacqueline Reid</span>
-						<span class="avatar w-24" style="margin: -2px"><img src="../assets/img/a0.jpg" alt="..."></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right w mt-3 animate fadeIn">
-						<a class="dropdown-item" href="music.artist.html">
-							<span>Profile</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">
-							Sign Out
-						</a>
-						<!-- Добавляем кнопку "Войти" -->
-						<a class="dropdown-item" href="#">
-							Sign In
-						</a>
-					</div>
-				</li>
-
-				<!-- Отдельная кнопка "Войти" -->
+				<ul class="nav navbar-menu order-1 order-lg-2">
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li class="nav-item dropdown">
+							<a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center px-2 text-color">
+								<span class="dropdown-toggle mx-2 d-none l-h-1x d-lg-block text-right">@User.Identity.Name</span>
+								<span class="avatar w-24" style="margin: -2px"><img src="~/assets/img/a0.jpg" alt="..."></span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right w mt-3 animate fadeIn">
+								<a class="dropdown-item" href="#">Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" asp-controller="Auth" asp-action="Login">Sign Out</a>
+							</div>
+						</li>
+					}
+					else
+					{
+						<li class="nav-item">
+							<a class="nav-link px-2" asp-controller="Auth" asp-action="Login">Sign In</a>
+						</li>
+					}
+				</ul>
+				
 				
 			</ul>
 		</div>
