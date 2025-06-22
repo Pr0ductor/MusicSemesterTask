@@ -5,6 +5,7 @@ using MediatR;
 using MusicSemesterTask.Application.Features.Charts.Queries;
 using MusicSemesterTask.Application.Interfaces.Services;
 using System.Security.Claims;
+using MusicSemesterTask.Domain.Enums;
 
 namespace MusicSemesterTask.Controllers
 {
@@ -25,10 +26,21 @@ namespace MusicSemesterTask.Controllers
         }
 
         // GET: /Charts/Index
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Country? country = null, Genre? genre = null)
         {
-            var query = new GetTopSongsQuery();
+            var query = new GetTopSongsQuery
+            {
+                Country = country,
+                Genre = genre
+            };
+            
             var songs = await _mediator.Send(query);
+            
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_SongsList", songs);
+            }
+            
             return View(songs);
         }
 

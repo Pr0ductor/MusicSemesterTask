@@ -29,14 +29,11 @@
 				<ul class="nav bg">
 					<li class="nav-header hidden-folded pt-4"><span class="text-muted">Recommand</span></li>
 					<li>
-					<div class="p-3 nav-fold"><a href="#" class="btn btn-white btn-block text-align-auto"
-					                             data-toggle="dropdown"><i data-feather="bar-chart-2" width="12" height="12"></i>
-							<span class="mx-1 hidden-folded">Basik top charts</span></a>
-						<div class="dropdown-menu text-sm"><a class="dropdown-item"
-						                                      href="music.charts.html#pop">Pop chart</a> <a class="dropdown-item"
-						                                                                                    href="music.charts.html#hip-pop">Hip-Hop chart</a> <a class="dropdown-item"
-						                                                                                                                                          href="music.charts.html#country">Country chart</a> <a class="dropdown-item"
-						                                                                                                                                                                                                href="music.charts.html#global">Global top 50</a></div>
+					<div class="p-3 nav-fold">
+						<div class="btn btn-white btn-block text-align-auto">
+							<i data-feather="bar-chart-2" width="12" height="12"></i>
+							<span class="mx-1 hidden-folded">Basic top charts</span>
+						</div>
 					</div>
 					
 					<li class="nav-header hidden-folded">
@@ -85,14 +82,12 @@
 					</li>
 					<li class="open">
 						<ul class="nav nav-sub">
-							<li><a href="music.detail.html" class="px-2"><span class="nav-text">Classic
-											Jazz</span></a></li>
-							<li><a href="music.detail.html#id=1" class="px-2"><span class="nav-text">Hips</span></a>
+							<li><a href="" class="px-2"><span class="nav-text">Metallica</span></a></li>
+							<li><a href="" class="px-2"><span class="nav-text">Мартин</span></a>
 							</li>
-							<li><a href="music.detail.html#id=2" class="px-2"><span class="nav-text">50 top
+							<li><a href="" class="px-2"><span class="nav-text">Pop
 											albums</span></a></li>
-							<li><a href="music.detail.html#id=3" class="px-2"><span class="nav-text">DJ
-											2018</span></a></li>
+		
 						</ul>
 					</li>
 				</ul>
@@ -186,37 +181,35 @@
 			</ul>
 		</div>
 	</div><!-- ############ Header END--><!-- ############ Content START-->
-	<div id="content" class="flex"><!-- ############ Main START-->
+	<div id="content" class="flex">
 		<div class="page-container">
 			<div class="padding sr">
 				<div class="row no-gutters list-grouped">
 					<div class="col-sm-6">
 						<div class="list-item list-overlay r mb-3">
-							<div class="media media-4x3"><a href="music.detail.html#" class="ajax media-content"
-							                                style="background-image:url(../assets/img/c10.jpg)"></a>
+							<div class="media media-4x3">
+								<div class="media-content" style="background-image:url(../assets/img/c10.jpg)"></div>
 								<div class="media-action"></div>
 							</div>
 							<div class="list-content p-5">
-								<div class="list-body"><a href="music.detail.html#"
-								                          class="list-title title ajax h4 font-weight-bold">Amazing songs </a><a
-									                                                                                              href="music.artist.html#"
-									                                                                                              class="list-subtitle d-block text-muted subtitle ajax h-1x">Pharetra dapibus
-									cursus tellus scelerisque sed morbi nulla rhoncus,</a></div>
+								<div class="list-body">
+									<div class="list-title title h4 font-weight-bold">Amazing songs</div>
+									<div class="list-subtitle d-block text-muted subtitle h-1x">Pharetra dapibus cursus tellus scelerisque sed morbi nulla rhoncus,</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="list-item list-overlay r mb-3">
-							<div class="media media-4x3"><a href="music.detail.html#" class="ajax media-content"
-							                                style="background-image:url(../assets/img/c15.jpg)"></a>
+							<div class="media media-4x3">
+								<div class="media-content" style="background-image:url(../assets/img/c15.jpg)"></div>
 								<div class="media-action"></div>
 							</div>
 							<div class="list-content p-5">
-								<div class="list-body"><a href="music.detail.html#"
-								                          class="list-title title ajax h4 font-weight-bold">Weekly top albums </a><a
-									                                                                                                  href="music.artist.html#"
-									                                                                                                  class="list-subtitle d-block text-muted subtitle ajax h-1x">Porta neque,
-									ultricies porta consectetur diam aenean volutpat mi</a></div>
+								<div class="list-body">
+									<div class="list-title title h4 font-weight-bold">Weekly top albums</div>
+									<div class="list-subtitle d-block text-muted subtitle h-1x">Porta neque, ultricies porta consectetur diam aenean volutpat mi</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -231,101 +224,105 @@
 					</div>
 					<span class="flex"></span>
 				</div>
-				<div class="row row-sm">
-					<form style="display:none">
-						@Html.AntiForgeryToken()
-					</form>
-					@foreach (var song in Model.TopSongs)
-					{
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="list-item r">
-								<div class="media">
-									<div class="media-content" style="background-image:url(@song.CoverUrl)">
-										<div class="media-action media-action-overlay">
-											<button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
-												@{
-													var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-													var isLiked = false;
-													foreach (var like in song.Likes)
-													{
-														if (like.UserId.ToString().Equals(userId))
+					<div class="row row-sm">
+						<form style="display:none">
+							@Html.AntiForgeryToken()
+						</form>
+						@foreach (var song in Model.TopSongs)
+						{
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="list-item r">
+									<div class="media">
+										<div class="media-content" style="background-image:url(@song.CoverUrl)">
+											<div class="media-action media-action-overlay">
+												<button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
+													@{
+														var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+														var isLiked = false;
+														foreach (var like in song.Likes)
 														{
-															isLiked = true;
-															break;
+															if (like.UserId.ToString().Equals(userId))
+															{
+																isLiked = true;
+																break;
+															}
 														}
+														var heartClass = isLiked ? "active-danger" : "";
 													}
-													var heartClass = isLiked ? "active-danger" : "";
-												}
-												<i data-feather="heart" class="@heartClass"></i>
-											</button>
-											<button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-											<button class="btn btn-icon no-bg no-shadow hide-row btn-more">
-												<i data-feather="more-horizontal"></i>
-											</button>
+													<i data-feather="heart" class="@heartClass"></i>
+												</button>
+												<button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
+												<button class="btn btn-icon no-bg no-shadow hide-row btn-more">
+													<i data-feather="more-horizontal"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="list-content text-center">
+										<div class="list-body">
+											<div class="list-title title">@song.Title</div>
+											<div class="list-subtitle d-block text-muted subtitle">@song.Artist.Name</div>
 										</div>
 									</div>
 								</div>
-								<div class="list-content text-center">
-									<div class="list-body">
-										<div class="list-title title">@song.Title</div>
-										<div class="list-subtitle d-block text-muted subtitle">@song.Artist.Name</div>
-									</div>
+							</div>
+						}
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="heading py-2 d-flex">
+								<div>
+									<div class="text-muted text-sm">User</div>
+									<h5 class="text-highlight">Recently added</h5>
 								</div>
+								<span class="flex"></span>
+							</div>
+							<div class="list list-row">
+								@foreach (var song in Model.LatestSongs)
+								{
+									<div class="list-item" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Artist.Country" data-source="@song.AudioUrl">
+										<div class="media">
+											<a href="music.detail.html#@song.Id" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
+											<div class="media-action media-action-overlay">
+												@{
+													var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+													var isLiked = song.Likes.Any(l => l.UserId.ToString().Equals(userId));
+													var heartClass = isLiked ? "active-danger" : "";
+												}
+												<button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
+													<i data-feather="heart" class="@heartClass"></i>
+												</button>
+												<button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
+												<button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+													<i data-feather="more-horizontal"></i>
+												</button>
+												<div class="dropdown-menu dropdown-menu-right"></div>
+											</div>
+										</div>
+										<div class="flex">
+											<a href="music.detail.html#@song.Id" class="item-title text-color h-1x">@song.Title</a>
+											<a href="music.artist.html#@song.ArtistId" class="item-author text-muted h-1x">@song.Artist.Name</a>
+										</div>
+										<div class="item-action dropdown">
+											<div class="d-flex align-items-center">
+												<div class="px-3 text-sm text-muted d-none d-md-block">@song.Duration.ToString(@"mm\:ss")</div>
+												<button class="btn btn-icon no-bg no-shadow" onclick="toggleLike(@song.Id, this)">
+													<i data-feather="heart" class="@heartClass"></i>
+												</button>
+												<button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
+													<i data-feather="more-horizontal"></i>
+												</button>
+												<div class="dropdown-menu dropdown-menu-right"></div>
+											</div>
+										</div>
+									</div>
+								}
 							</div>
 						</div>
-					}
-				</div>
-				<div class="row list-row list-index">
-					@foreach (var song in Model.LatestSongs)
-					{
-						<div class="col-12" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Artist.Country"
-						     data-source="@song.AudioUrl">
-							<div class="list-item r">
-								<div class="media">
-									<a href="music.detail.html#@song.Id"
-									   class="ajax media-content"
-									   style="background-image:url(@song.CoverUrl)"></a>
-									<div class="media-action media-action-overlay">
-										@{
-											var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-											var isLiked = song.Likes.Any(l => l.UserId.ToString().Equals(userId));
-											var heartClass = isLiked ? "active-danger" : "";
-										}
-										<button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
-											<i data-feather="heart" class="@heartClass"></i>
-										</button>
-										<button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-										<button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
-											<i data-feather="more-horizontal"></i>
-										</button>
-										<div class="dropdown-menu dropdown-menu-right"></div>
-									</div>
-								</div>
-								<div class="list-content text-center">
-									<div class="list-body">
-										<a href="music.detail.html#@song.Id" class="list-title title ajax h-1x">@song.Title</a>
-										<a href="music.artist.html#@song.ArtistId" class="list-subtitle d-block text-muted subtitle ajax h-1x">@song.Artist.Name</a>
-									</div>
-								</div>
-								<div class="list-action show-row">
-									<div class="d-flex align-items-center">
-										<div class="px-3 text-sm d-none d-md-block">@song.Duration.ToString(@"mm\:ss")</div>
-										<button class="btn btn-icon no-bg no-shadow" onclick="toggleLike(@song.Id, this)">
-											<i data-feather="heart" class="@heartClass"></i>
-										</button>
-										<button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
-											<i data-feather="more-horizontal"></i>
-										</button>
-										<div class="dropdown-menu dropdown-menu-right"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					}
-				</div>
-				
-				
-				<div class="col-md-6">
+						
+
+
+						<div class="col-md-6">
 							<div class="heading py-2 d-flex">
 								<div>
 									<div class="text-muted text-sm sr-item">Upcoming</div>
@@ -335,14 +332,14 @@
 							<div class="row row-sm">
 								<div class="col-6">
 									<div class="list-item list-overlay r mb-3 gd-primary">
-										<div class="media media-4x3"><a href="music.detail.html#"
-												class="ajax media-content" style="background-image:url()"></a>
+										<div class="media media-4x3">
+											<div class="media-content" style="background-image:url()"></div>
 											<div class="media-action"></div>
 										</div>
 										<div class="list-content p-4">
-											<div class="list-body"><a href="music.detail.html#"
-													class="list-title title ajax h5 font-weight-bold">Spring
-													Festival</a></div>
+											<div class="list-body">
+												<div class="list-title title h5 font-weight-bold">Spring Festival</div>
+											</div>
 											<div class="list-footer">
 												<div class="text-muted text-sm">Feb 29, 6:30 am</div>
 											</div>
@@ -351,13 +348,13 @@
 								</div>
 								<div class="col-6">
 									<div class="list-item list-overlay r mb-3 gd-danger">
-										<div class="media media-4x3"><a href="music.detail.html#"
-												class="ajax media-content" style="background-image:url()"></a>
+										<div class="media media-4x3">
+											<div class="media-content" style="background-image:url()"></div>
 											<div class="media-action"></div>
 										</div>
 										<div class="list-content p-4">
-											<div class="list-body"><a href="music.detail.html#"
-													class="list-title title ajax h5 font-weight-bold">Music Hub 2020</a>
+											<div class="list-body">
+												<div class="list-title title h5 font-weight-bold">Music Hub 2020</div>
 											</div>
 											<div class="list-footer">
 												<div class="text-muted text-sm">Feb 9, 8:16 am</div>
@@ -375,14 +372,14 @@
 							<div class="row row-sm">
 								<div class="col-4">
 									<div class="list-item r">
-										<div class="media media-16x9"><a href="music.detail.html#"
-												class="ajax media-content"
-												style="background-image:url(../assets/img/b7.jpg)"></a>
+										<div class="media media-16x9">
+											<div class="media-content"
+											   style="background-image:url(../assets/img/b7.jpg)"></div>
 											<div class="media-action"></div>
 										</div>
 										<div class="list-content">
-											<div class="list-body"><a href="music.detail.html#"
-													class="list-title title ajax">Et purus vulputate adipiscing</a>
+											<div class="list-body">
+												<div class="list-title title">Et purus vulputate adipiscing</div>
 											</div>
 											<div class="list-footer">
 												<div class="text-muted text-sm">Feb 1, 1:36 am</div>
@@ -392,14 +389,15 @@
 								</div>
 								<div class="col-4">
 									<div class="list-item r">
-										<div class="media media-16x9"><a href="music.detail.html#"
-												class="ajax media-content"
-												style="background-image:url(../assets/img/b8.jpg)"></a>
+										<div class="media media-16x9">
+											<div class="media-content"
+											   style="background-image:url(../assets/img/b8.jpg)"></div>
 											<div class="media-action"></div>
 										</div>
 										<div class="list-content">
-											<div class="list-body"><a href="music.detail.html#"
-													class="list-title title ajax">Nibh massa sit morbi tortor</a></div>
+											<div class="list-body">
+												<div class="list-title title">Nibh massa sit morbi tortor</div>
+											</div>
 											<div class="list-footer">
 												<div class="text-muted text-sm">Feb 23, 5:19 am</div>
 											</div>
@@ -408,14 +406,15 @@
 								</div>
 								<div class="col-4">
 									<div class="list-item r">
-										<div class="media media-16x9"><a href="music.detail.html#"
-												class="ajax media-content"
-												style="background-image:url(../assets/img/b9.jpg)"></a>
+										<div class="media media-16x9">
+											<div class="media-content"
+											   style="background-image:url(../assets/img/b9.jpg)"></div>
 											<div class="media-action"></div>
 										</div>
 										<div class="list-content">
-											<div class="list-body"><a href="music.detail.html#"
-													class="list-title title ajax">Id sit vitae</a></div>
+											<div class="list-body">
+												<div class="list-title title">Id sit vitae</div>
+											</div>
 											<div class="list-footer">
 												<div class="text-muted text-sm">Feb 26, 4:44 am</div>
 											</div>
@@ -426,7 +425,9 @@
 						</div>
 					</div>
 				</div>
+				</div>
 			</div><!-- ############ Main END-->
+		</div>
 	</div><!-- ############ Content END--><!-- ############ Footer START-->
 	<div id="footer" class="page-footer sticky sticky-bottom">
 		<div data-plugin="plyr" class="plyrist plyrist_audio plyr-list-popup bg-white b-t" id="plyrist"><audio

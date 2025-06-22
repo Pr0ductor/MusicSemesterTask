@@ -17,8 +17,8 @@ public class Song : BaseAuditableEntity
     public TimeSpan Duration { get; set; }
 
     // Связь с артистом
-    public int ArtistId { get; set; }
+    public int? ArtistId { get; set; }
     public Artist Artist { get; set; }
     
-    public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
+    public ICollection<Like> Likes { get; set; } = new List<Like>();
 }

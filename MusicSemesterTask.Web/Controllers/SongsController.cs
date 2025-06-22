@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
+using MusicSemesterTask.Domain.Enums;
 using MusicSemesterTask.Persistence.Contexts;
 using MusicSemesterTask.Web.Hubs;
 using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using MusicSemesterTask.Application.Features.Songs.Commands;
+using MusicSemesterTask.Application.Features.Songs.Queries;
 
 namespace MusicSemesterTask.Web.Controllers
 {
@@ -28,38 +30,25 @@ namespace MusicSemesterTask.Web.Controllers
             _mediator = mediator;
         }
         
-        public async Task<IActionResult> Index(string searchQuery = "", int? artistId = null, string sortBy = "")
+        public async Task<IActionResult> Index(Country? country = null, Genre? genre = null, 
+            string? searchQuery = null, string? sortBy = null, int? artistId = null)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(userId))
+            var query = new GetFilteredSongsQuery
             {
-                return RedirectToAction("Login", "AuthView");
-            }
-
-            var query = _context.Songs
-                .Include(s => s.Artist)
-                .Include(s => s.Likes)
-                .AsQueryable();
-
-            if (!string.IsNullOrEmpty(searchQuery))
-            {
-                query = query.Where(s => s.Title.Contains(searchQuery) || s.Artist.Name.Contains(searchQuery));
-            }
-
-            if (artistId.HasValue)
-            {
-                query = query.Where(s => s.ArtistId == artistId.Value);
-            }
-
-            query = sortBy.ToLower() switch
-            {
-                "title" => query.OrderBy(s => s.Title),
-                "artist" => query.OrderBy(s => s.Artist.Name),
-                "likes" => query.OrderByDescending(s => s.Likes.Count()),
-                _ => query.OrderByDescending(s => s.Id)
+                Country = country,
+                Genre = genre,
+                SearchQuery = searchQuery,
+                SortBy = sortBy,
+                ArtistId = artistId
             };
 
-            var songs = await query.ToListAsync();
+            var songs = await _mediator.Send(query);
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_SongsList", songs);
+            }
+
             return View(songs);
         }
         
@@ -87,20 +76,9 @@ namespace MusicSemesterTask.Web.Controllers
         [IgnoreAntiforgeryToken]
         public async Task<IActionResult> Like(int songId)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(userId))
-            {
-                return Unauthorized();
-            }
-            
-            var command = new LikeSongCommand
-            {
-                SongId = songId,
-                UserId = userId
-            };
-
-            var isLiked = await _mediator.Send(command);
-            return Json(new { success = true, isLiked });
+            var command = new LikeSongCommand { SongId = songId };
+            var result = await _mediator.Send(command);
+            return Json(new { success = result });
         }
     }
 }

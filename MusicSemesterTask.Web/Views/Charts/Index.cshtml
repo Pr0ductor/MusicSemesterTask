@@ -1,5 +1,6 @@
-@model List<MusicSemesterTask.Domain.Entities.Song>
 @using System.Security.Claims
+@using MusicSemesterTask.Domain.Enums
+@model List<MusicSemesterTask.Domain.Entities.Song>
 @{
     ViewData["Title"] = "Top Charts";
 }
@@ -36,14 +37,11 @@
 				<ul class="nav bg">
 					<li class="nav-header hidden-folded pt-4"><span class="text-muted">Recommand</span></li>
 					<li>
-					<div class="p-3 nav-fold"><a href="#" class="btn btn-white btn-block text-align-auto"
-					                             data-toggle="dropdown"><i data-feather="bar-chart-2" width="12" height="12"></i>
-							<span class="mx-1 hidden-folded">Basik top charts</span></a>
-						<div class="dropdown-menu text-sm"><a class="dropdown-item"
-						                                      href="music.charts.html#pop">Pop chart</a> <a class="dropdown-item"
-						                                                                                    href="music.charts.html#hip-pop">Hip-Hop chart</a> <a class="dropdown-item"
-						                                                                                                                                          href="music.charts.html#country">Country chart</a> <a class="dropdown-item"
-						                                                                                                                                                                                                href="music.charts.html#global">Global top 50</a></div>
+					<div class="p-3 nav-fold">
+						<div class="btn btn-white btn-block text-align-auto">
+							<i data-feather="bar-chart-2" width="12" height="12"></i>
+							<span class="mx-1 hidden-folded">Basic top charts</span>
+						</div>
 					</div>
 					
 					<li class="nav-header hidden-folded">
@@ -92,14 +90,12 @@
 					</li>
 					<li class="open">
 						<ul class="nav nav-sub">
-							<li><a href="music.detail.html" class="px-2"><span class="nav-text">Classic
-											Jazz</span></a></li>
-							<li><a href="music.detail.html#id=1" class="px-2"><span class="nav-text">Hips</span></a>
+							<li><a href="" class="px-2"><span class="nav-text">Metallica</span></a></li>
+							<li><a href="" class="px-2"><span class="nav-text">Мартин</span></a>
 							</li>
-							<li><a href="music.detail.html#id=2" class="px-2"><span class="nav-text">50 top
+							<li><a href="" class="px-2"><span class="nav-text">Pop
 											albums</span></a></li>
-							<li><a href="music.detail.html#id=3" class="px-2"><span class="nav-text">DJ
-											2018</span></a></li>
+		
 						</ul>
 					</li>
 				</ul>
@@ -207,36 +203,33 @@
     
     <div class="pos-rlt">
         <div class="d-flex py-2 sr-item">
-            <div class="dropdown">
-                <button class="btn btn-outline-primary w-sm" data-toggle="dropdown">
-                    <span>New</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Popular</a>
-                    <a href="#" class="dropdown-item">New</a>
-                </div>
-            </div>
             <div class="flex"></div>
             <div class="dropdown mx-2">
-                <button class="btn btn-outline-primary w-sm" data-toggle="dropdown">
-                    <span>All countries</span>
+                <button class="btn btn-outline-primary w-sm dropdown-toggle" data-toggle="dropdown">
+                    <span>@(string.IsNullOrEmpty(Context.Request.Query["country"]) ? "All countries" : Context.Request.Query["country"])</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item">All countries</a>
-                    <a class="dropdown-item">USA</a>
-                    <a class="dropdown-item">UK</a>
-                    <a class="dropdown-item">Germany</a>
+                    <a class="dropdown-item @(string.IsNullOrEmpty(Context.Request.Query["country"]) ? "active" : "")" 
+                       data-filter="country" data-value="">All countries</a>
+                    @foreach (Country country in Enum.GetValues(typeof(Country)))
+                    {
+                        <a class="dropdown-item @(Context.Request.Query["country"].ToString() == country.ToString() ? "active" : "")" 
+                           data-filter="country" data-value="@country">@country</a>
+                    }
                 </div>
             </div>
             <div class="dropdown">
-                <button class="btn btn-outline-primary w-sm" data-toggle="dropdown">
-                    <span>All genres</span>
+                <button class="btn btn-outline-primary w-sm dropdown-toggle" data-toggle="dropdown">
+                    <span>@(string.IsNullOrEmpty(Context.Request.Query["genre"]) ? "All genres" : Context.Request.Query["genre"])</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item">All genres</a>
-                    <a class="dropdown-item">Pop</a>
-                    <a class="dropdown-item">Rock</a>
-                    <a class="dropdown-item">Jazz</a>
+                    <a class="dropdown-item @(string.IsNullOrEmpty(Context.Request.Query["genre"]) ? "active" : "")" 
+                       data-filter="genre" data-value="">All genres</a>
+                    @foreach (Genre genre in Enum.GetValues(typeof(Genre)))
+                    {
+                        <a class="dropdown-item @(Context.Request.Query["genre"].ToString() == genre.ToString() ? "active" : "")" 
+                           data-filter="genre" data-value="@genre">@genre</a>
+                    }
                 </div>
             </div>
         </div>
@@ -250,42 +243,8 @@
             </div>
         </div>
         
-        <div class="row list list-row">
-            <form style="display:none">
-                @Html.AntiForgeryToken()
-            </form>
-            
-            @foreach (var song in Model)
-            {
-                <div class="col-12" data-id="@song.Id">
-                    <div class="list-item r">
-                        <div class="media">
-                            <div class="media-content" style="background-image:url(@song.CoverUrl)">
-                                <div class="media-action media-action-overlay">
-                                    <button class="btn btn-icon btn-rounded btn-play"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-content">
-                            <div class="list-body">
-                                <div class="list-title title h-1x">@song.Title</div>
-                                <div class="list-subtitle subtitle h-1x text-muted">@song.Artist.Name</div>
-                            </div>
-                        </div>
-                        <div class="list-action ml-3">
-                            <div class="d-flex align-items-center">
-                                <div class="px-3 text-sm d-none d-md-block likes-count">@song.Likes.Count</div>
-                                <button class="btn btn-icon no-bg no-shadow like-btn" onclick="toggleLike(@song.Id, this)">
-                                    <i data-feather="heart" class="@(song.Likes.Any(l => l.UserId.ToString() == User.FindFirst(ClaimTypes.NameIdentifier)?.Value) ? "active-danger" : "")"></i>
-                                </button>
-                                <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
-                                    <i data-feather="more-horizontal"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+        <div id="songs-container">
+            @await Html.PartialAsync("_SongsList", Model)
         </div>
     </div>
 </div>
@@ -293,6 +252,61 @@
 <script src="../assets/js/site.js"></script>
 </body>
 </html>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            function updateFilters(country, genre) {
+                const params = new URLSearchParams();
+                if (country) params.set('country', country);
+                if (genre) params.set('genre', genre);
+                
+                const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+                history.pushState({}, '', newUrl);
+                
+                $.get('@Url.Action("Index")', { country: country, genre: genre }, function(data) {
+                    $('#songs-container').html(data);
+                    if (typeof feather !== 'undefined') {
+                        feather.replace();
+                    }
+                });
+            }
+            
+            $('.dropdown-item').click(function(e) {
+                e.preventDefault();
+                const $this = $(this);
+                const filter = $this.data('filter');
+                const value = $this.data('value');
+                
+                $this.closest('.dropdown-menu').find('.dropdown-item').removeClass('active');
+                $this.addClass('active');
+                
+                const buttonText = value || (filter === 'country' ? 'All countries' : 'All genres');
+                $this.closest('.dropdown').find('button span').text(buttonText);
+                
+                const currentCountry = filter === 'country' ? value : urlParams.get('country') || '';
+                const currentGenre = filter === 'genre' ? value : urlParams.get('genre') || '';
+                
+                updateFilters(currentCountry, currentGenre);
+            });
+            
+            // Инициализация состояния фильтров
+            const initialCountry = urlParams.get('country');
+            const initialGenre = urlParams.get('genre');
+            
+            if (initialCountry) {
+                $(`[data-filter="country"][data-value="${initialCountry}"]`).addClass('active')
+                    .closest('.dropdown').find('button span').text(initialCountry);
+            }
+            if (initialGenre) {
+                $(`[data-filter="genre"][data-value="${initialGenre}"]`).addClass('active')
+                    .closest('.dropdown').find('button span').text(initialGenre);
+            }
+        });
+    </script>
+}
 
 
 

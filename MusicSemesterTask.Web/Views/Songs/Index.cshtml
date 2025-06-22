@@ -1,4 +1,5 @@
 @using System.Security.Claims
+@using MusicSemesterTask.Domain.Enums
 @{
     ViewData["Title"] = "Songs";
 }
@@ -14,7 +15,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><!-- style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/site.min.css">
-    <link rel="stylesheet" href="../assets/css/like-button.css">
 
     <form method="post">
         <input type="hidden" asp-antiforgery="true" />
@@ -39,14 +39,11 @@
 				<ul class="nav bg">
 					<li class="nav-header hidden-folded pt-4"><span class="text-muted">Recommand</span></li>
 					<li>
-					<div class="p-3 nav-fold"><a href="#" class="btn btn-white btn-block text-align-auto"
-					                             data-toggle="dropdown"><i data-feather="bar-chart-2" width="12" height="12"></i>
-							<span class="mx-1 hidden-folded">Basik top charts</span></a>
-						<div class="dropdown-menu text-sm"><a class="dropdown-item"
-						                                      href="music.charts.html#pop">Pop chart</a> <a class="dropdown-item"
-						                                                                                    href="music.charts.html#hip-pop">Hip-Hop chart</a> <a class="dropdown-item"
-						                                                                                                                                          href="music.charts.html#country">Country chart</a> <a class="dropdown-item"
-						                                                                                                                                                                                                href="music.charts.html#global">Global top 50</a></div>
+					<div class="p-3 nav-fold">
+						<div class="btn btn-white btn-block text-align-auto">
+							<i data-feather="bar-chart-2" width="12" height="12"></i>
+							<span class="mx-1 hidden-folded">Basic top charts</span>
+						</div>
 					</div>
 					
 					<li class="nav-header hidden-folded">
@@ -95,14 +92,12 @@
 					</li>
 					<li class="open">
 						<ul class="nav nav-sub">
-							<li><a href="music.detail.html" class="px-2"><span class="nav-text">Classic
-											Jazz</span></a></li>
-							<li><a href="music.detail.html#id=1" class="px-2"><span class="nav-text">Hips</span></a>
+							<li><a href="" class="px-2"><span class="nav-text">Metallica</span></a></li>
+							<li><a href="" class="px-2"><span class="nav-text">Мартин</span></a>
 							</li>
-							<li><a href="music.detail.html#id=2" class="px-2"><span class="nav-text">50 top
+							<li><a href="" class="px-2"><span class="nav-text">Pop
 											albums</span></a></li>
-							<li><a href="music.detail.html#id=3" class="px-2"><span class="nav-text">DJ
-											2018</span></a></li>
+		
 						</ul>
 					</li>
 				</ul>
@@ -203,85 +198,34 @@
                 <div>
                     <div class="text-muted text-sm sr-item"></div>
                     <h5 class="text-highlight sr-item">Filter</h5>
-                </div><span class="flex"></span>
+                </div>
             </div>
             <div class="pb-1 d-flex sr-item" id="filter-tag">
-                <div class="text-muted no-shrink my-2">Contries</div>
-                <div class="mx-3"><a class="badge badge-lg bg-light m-1">All countries</a> <a
-                                                                                               class="badge badge-lg bg-light m-1">Australia</a> <a
-                                                                                                                                                     class="badge badge-lg bg-light m-1">Canada</a> <a
-                                                                                                                                                                                                        class="badge badge-lg bg-light m-1">France</a> <a
-                                                                                                                                                                                                                                                           class="badge badge-lg bg-light m-1">Germany</a> <a
-                                                                                                                                                                                                                                                                                                               class="badge badge-lg bg-light m-1">Ireland</a> <a
-                                                                                                                                                                                                                                                                                                                                                                   class="badge badge-lg bg-light m-1">Netherlands</a> <a
-                                                                                                                                                                                                                                                                                                                                                                                                                           class="badge badge-lg bg-light m-1">New Zealand</a> <a
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   class="badge badge-lg bg-light m-1">United Kingdom</a> <a
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              class="badge badge-lg bg-light m-1">USA</a></div>
-            </div>
-            <div class="pb-4 d-flex sr-item" id="filter-category">
-                <div class="text-muted no-shrink my-2">Genres</div>
-                <div class="mx-3"><a href="#" class="badge badge-lg bg-light m-1">All genres </a><a href="#"
-                                                                                                    class="badge badge-lg bg-light m-1">Acoustic </a><a href="#"
-                                                                                                                                                        class="badge badge-lg bg-light m-1">Ambient </a><a href="#"
-                                                                                                                                                                                                           class="badge badge-lg bg-light m-1">Blues </a><a href="#"
-                                                                                                                                                                                                                                                            class="badge badge-lg bg-light m-1">Classical </a><a href="#"
-                                                                                                                                                                                                                                                                                                                 class="badge badge-lg bg-light m-1">Country </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                    class="badge badge-lg bg-light m-1">Electronic </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                          class="badge badge-lg bg-light m-1">Emo </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                         class="badge badge-lg bg-light m-1">Folk </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         class="badge badge-lg bg-light m-1">Hardcore </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             class="badge badge-lg bg-light m-1">Hip-Hop </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="badge badge-lg bg-light m-1">Indie </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 class="badge badge-lg bg-light m-1">Jazz </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 class="badge badge-lg bg-light m-1">Latin </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="badge badge-lg bg-light m-1">Metal </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   class="badge badge-lg bg-light m-1">Pop </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="badge badge-lg bg-light m-1">Pop punk </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="badge badge-lg bg-light m-1">Punk </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="badge badge-lg bg-light m-1">Reggae </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="badge badge-lg bg-light m-1">R&B </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="badge badge-lg bg-light m-1">Rock </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="badge badge-lg bg-light m-1">Soul </a><a href="#"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="badge badge-lg bg-light m-1">World</a></div>
-            </div>
-            <div class="container">
-                <h2>Songs</h2>
-                <form style="display:none">
-                    @Html.AntiForgeryToken()
-                </form>
-                <div class="row">
-                    @foreach (var song in Model)
+                <div class="text-muted no-shrink my-2">Countries</div>
+                <div class="mx-3">
+                    <a href="#" data-filter="country" data-value="" 
+                       class="badge badge-lg bg-light m-1 filter-link @(Context.Request.Query["country"].Count == 0 ? "active" : "")">All countries</a>
+                    @foreach (Country country in Enum.GetValues(typeof(Country)))
                     {
-                        <div class="col-4 col-sm-4 col-md-3 col-lg-2" data-id="@song.Id" data-category="@song.Genre"
-                            data-tag="@song.Country" data-source="@song.AudioUrl">
-                            <div class="list-item r">
-                                <div class="media">
-                                    <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
-                                    <div class="media-action media-action-overlay">
-                                        @if (User.Identity.IsAuthenticated)
-                                        {
-                                            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                                            <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)" type="button">
-                                                <i data-feather="heart" class="@(song.Likes.Any(l => l.UserId == int.Parse(userId ?? "0")) ? "active-danger" : "")"></i>
-                                            </button>
-                                        }
-                                        <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play" type="button"></button>
-                                        <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown" type="button">
-                                            <i data-feather="more-horizontal"></i>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right"></div>
-                                    </div>
-                                </div>
-                                <div class="list-content text-center">
-                                    <div class="list-body">
-                                        <a href="#" class="list-title title ajax h-1x">@song.Title</a>
-                                        <a href="#" class="list-subtitle d-block text-muted subtitle ajax h-1x">@song.Artist?.Name</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="#" data-filter="country" data-value="@country" 
+                           class="badge badge-lg bg-light m-1 filter-link @(Context.Request.Query["country"].ToString() == country.ToString() ? "active" : "")">@country</a>
                     }
                 </div>
+            </div>
+            <div class="pb-1 d-flex sr-item">
+                <div class="text-muted no-shrink my-2">Genres</div>
+                <div class="mx-3">
+                    <a href="#" data-filter="genre" data-value="" 
+                       class="badge badge-lg bg-light m-1 filter-link @(Context.Request.Query["genre"].Count == 0 ? "active" : "")">All genres</a>
+                    @foreach (Genre genre in Enum.GetValues(typeof(Genre)))
+                    {
+                        <a href="#" data-filter="genre" data-value="@genre" 
+                           class="badge badge-lg bg-light m-1 filter-link @(Context.Request.Query["genre"].ToString() == genre.ToString() ? "active" : "")">@genre</a>
+                    }
+                </div>
+            </div>
+            <div id="songs-container">
+                @await Html.PartialAsync("_SongsList", Model)
             </div>
         </div>
         <script src="../assets/js/site.min.js"></script>
@@ -291,3 +235,88 @@
 </body>
 
 </html>
+
+@section Scripts {
+    <script>
+    $(document).ready(function() {
+        // Инициализация текущих фильтров из URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var currentFilters = {
+            country: urlParams.get('country') || '',
+            genre: urlParams.get('genre') || '',
+            searchQuery: urlParams.get('searchQuery') || '',
+            sortBy: urlParams.get('sortBy') || ''
+        };
+        
+        function updateSongs() {
+            var url = '@Url.Action("Index", "Songs")';
+            var params = new URLSearchParams();
+            
+            // Добавляем только непустые фильтры
+            Object.entries(currentFilters).forEach(([key, value]) => {
+                if (value) {
+                    params.append(key, value);
+                }
+            });
+            
+            var queryString = params.toString();
+            if (queryString) {
+                url += '?' + queryString;
+            }
+            
+            $.ajax({
+                url: url,
+                type: 'GET',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                success: function(response) {
+                    $('#songs-container').html(response);
+                    if (typeof feather !== 'undefined') {
+                        feather.replace();
+                    }
+                    // Обновляем URL без перезагрузки страницы
+                    window.history.pushState({}, '', url);
+                    
+                    // Обновляем активные классы фильтров
+                    updateActiveFilters();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error updating songs:', error);
+                }
+            });
+        }
+        
+        function updateActiveFilters() {
+            // Обновляем активные классы для всех фильтров
+            $('.filter-link').each(function() {
+                var filterType = $(this).data('filter');
+                var filterValue = $(this).data('value') || '';
+                
+                if (currentFilters[filterType] === filterValue) {
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            });
+        }
+        
+        // Обработчик клика по фильтрам
+        $('.filter-link').click(function(e) {
+            e.preventDefault();
+            var filterType = $(this).data('filter');
+            var filterValue = $(this).data('value') || '';
+            
+            // Если кликнули на уже активный фильтр - сбрасываем его
+            if (currentFilters[filterType] === filterValue) {
+                currentFilters[filterType] = '';
+            } else {
+                currentFilters[filterType] = filterValue;
+            }
+            
+            updateSongs();
+        });
+        
+        // Инициализация активных фильтров при загрузке страницы
+        updateActiveFilters();
+    });
+    </script>
+}

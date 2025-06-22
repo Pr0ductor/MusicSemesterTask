@@ -1,0 +1,68 @@
+@using System.Security.Claims
+@model List<MusicSemesterTask.Domain.Entities.Song>
+
+<div class="container">
+    <h2>Songs</h2>
+    <form style="display:none">
+        @Html.AntiForgeryToken()
+    </form>
+    <div class="row">
+        @foreach (var song in Model)
+        {
+            <div class="col-4 col-sm-4 col-md-3 col-lg-2" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Country">
+                <div class="list-item r">
+                    <div class="media">
+                        <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
+                        <div class="media-action media-action-overlay">
+                            <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
+                                @{
+                                    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                    var isLiked = !string.IsNullOrEmpty(userId) && song.Likes.Any(l => l.UserId == int.Parse(userId));
+                                }
+                                <i data-feather="heart" class="@(isLiked ? "active-danger" : "")"></i>
+                            </button>
+                            <button class="btn btn-raised btn-icon btn-rounded bg-white">
+                                <i data-feather="play"></i>
+                            </button>
+                            <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+                                <i data-feather="more-horizontal"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-content text-center">
+                        <div class="list-body">
+                            <a href="#" class="list-title title ajax h-1x">@song.Title</a>
+                            <a href="#" class="list-subtitle d-block text-muted h-1x subtitle ajax">@song.Artist?.Name</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        
+        // Обработчик лайков
+        $('.btn-icon i[data-feather="heart"]').parent().click(function(e) {
+            e.preventDefault();
+            var button = $(this);
+            var songId = button.closest('[data-id]').data('id');
+            
+            $.ajax({
+                url: '@Url.Action("Like", "Songs")',
+                type: 'POST',
+                data: { songId: songId },
+                success: function(response) {
+                    if (response.success) {
+                        button.find('i').toggleClass('active-danger');
+                    }
+                }
+            });
+        });
+    });
+</script> 

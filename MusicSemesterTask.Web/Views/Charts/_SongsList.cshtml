@@ -1,0 +1,40 @@
+@using System.Security.Claims
+@model List<MusicSemesterTask.Domain.Entities.Song>
+
+<div class="row list list-row">
+    <form style="display:none">
+        @Html.AntiForgeryToken()
+    </form>
+    
+    @foreach (var song in Model)
+    {
+        <div class="col-12" data-id="@song.Id">
+            <div class="list-item r">
+                <div class="media">
+                    <div class="media-content" style="background-image:url(@song.CoverUrl)">
+                        <div class="media-action media-action-overlay">
+                            <button class="btn btn-icon btn-rounded btn-play"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-content">
+                    <div class="list-body">
+                        <div class="list-title title h-1x">@song.Title</div>
+                        <div class="list-subtitle subtitle h-1x text-muted">@song.Artist.Name</div>
+                    </div>
+                </div>
+                <div class="list-action ml-3">
+                    <div class="d-flex align-items-center">
+                        <div class="px-3 text-sm d-none d-md-block likes-count">@song.Likes.Count</div>
+                        <button class="btn btn-icon no-bg no-shadow like-btn" onclick="toggleLike(@song.Id, this)">
+                            <i data-feather="heart" class="@(song.Likes.Any(l => l.UserId.ToString() == User.FindFirst(ClaimTypes.NameIdentifier)?.Value) ? "active-danger" : "")"></i>
+                        </button>
+                        <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
+                            <i data-feather="more-horizontal"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div> 

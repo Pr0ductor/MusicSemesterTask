@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets/MusicSemesterTask.Web.bundle.scp.css"
     },
     {
-      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/css/like-button.css",
-      "PackagePath": "staticwebassets/assets/css/like-button.css"
-    },
-    {
       "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/css/site.min.css",
       "PackagePath": "staticwebassets/assets/css/site.min.css"
     },
