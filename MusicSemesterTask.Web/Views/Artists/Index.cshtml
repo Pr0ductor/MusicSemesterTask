@@ -1,3 +1,4 @@
+@using MusicSemesterTask.Domain.Enums
 @model IEnumerable<MusicSemesterTask.Domain.Entities.Artist>
 @{
     ViewData["Title"] = "Artists";
@@ -196,42 +197,45 @@
                 </div>
                 <div class="pb-4 d-flex sr-item" id="filter-tag">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Countries
+                        <button class="btn btn-outline-primary w-sm dropdown-toggle" data-toggle="dropdown">
+                            <span>@(string.IsNullOrEmpty(Context.Request.Query["country"]) ? "All countries" : Context.Request.Query["country"])</span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-action="Index">All countries</a></li>
-                            <li><a class="dropdown-item" asp-action="Index" asp-route-countryFilter="Russia">Russia</a></li>
-                            <li><a class="dropdown-item" asp-action="Index" asp-route-countryFilter="USA">USA</a></li>
-                            <li><a class="dropdown-item" asp-action="Index" asp-route-countryFilter="France">France</a></li>
-                            <!-- Добавьте другие страны по необходимости -->
-                        </ul>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item @(string.IsNullOrEmpty(Context.Request.Query["country"]) ? "active" : "")" 
+                               href="#" data-value="">All countries</a>
+                            @foreach (Country country in Enum.GetValues(typeof(Country)))
+                            {
+                                <a class="dropdown-item @(Context.Request.Query["country"].ToString() == country.ToString() ? "active" : "")" 
+                                   href="#" data-value="@country">@country</a>
+                            }
+                        </div>
                     </div>
                 </div>
-                
-                <div class="row list media-circle">
-                    @foreach (var artist in Model)
-                    {
-                        <div class="col-4 col-sm-3 col-md-2-4 col-lg-2 col-xl-1-8" data-id="@artist.Id"
-                            data-category="" data-tag="@artist.Country"
-                            data-source="">
-                            <div class="list-item r">
-                                <div class="media">
-                                    <a href="music.artist.html#@artist.Id" class="ajax media-content"
-                                        style="background-image:url(@(artist.ProfilePictureUrl ?? "../assets/img/a14.jpg"))"></a>
-                                    <div class="media-action"></div>
-                                </div>
-                                <div class="list-content text-center">
-                                    <div class="list-body">
-                                        <a href="music.artist.html#@artist.Id"
-                                            class="list-subtitle d-block text-muted subtitle ajax h-1x">@artist.Name</a>
+
+                <div id="artists-container">
+                    <div class="row list media-circle">
+                        @foreach (var artist in Model)
+                        {
+                            <div class="col-4 col-sm-3 col-md-2-4 col-lg-2 col-xl-1-8" data-id="@artist.Id"
+                                data-category="" data-tag="@artist.Country"
+                                data-source="">
+                                <div class="list-item r">
+                                    <div class="media">
+                                        <a href="music.artist.html#@artist.Id" class="ajax media-content"
+                                            style="background-image:url(@(artist.ProfilePictureUrl ?? "../assets/img/a14.jpg"))"></a>
+                                        <div class="media-action"></div>
+                                    </div>
+                                    <div class="list-content text-center">
+                                        <div class="list-body">
+                                            <a href="music.artist.html#@artist.Id"
+                                                class="list-subtitle d-block text-muted subtitle ajax h-1x">@artist.Name</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-                <div class="pagination pagination-sm mt-3"></div>
             </div>
         </div>
         <!-- ############ Main END -->
@@ -264,6 +268,80 @@
     </div><!-- ############ Footer END-->
 </div>
 <script src="../assets/js/site.min.js"></script>
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            function updateFilters(country) {
+                const params = new URLSearchParams();
+                if (country) params.set('country', country);
+                
+                const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+                history.pushState({}, '', newUrl);
+                
+                const currentContent = $('#artists-container').html();
+                
+                $.ajax({
+                    url: '@Url.Action("Index")',
+                    data: { country: country },
+                    beforeSend: function() {
+                        $('#artists-container').addClass('loading');
+                    },
+                    success: function(data) {
+                        $('#artists-container')
+                            .html($(data).find('#artists-container').html())
+                            .removeClass('loading');
+                    },
+                    error: function() {
+                        $('#artists-container')
+                            .html(currentContent)
+                            .removeClass('loading');
+                    }
+                });
+            }
+            
+            $('.dropdown-item').click(function(e) {
+                e.preventDefault();
+                const value = $(this).data('value');
+                
+                // Обновляем активное состояние
+                $('.dropdown-item').removeClass('active');
+                $(this).addClass('active');
+                
+                // Обновляем текст кнопки
+                const buttonText = value || 'All countries';
+                $('.dropdown-toggle span').text(buttonText);
+                
+                updateFilters(value);
+            });
+            
+            // Инициализация состояния фильтров
+            const initialCountry = urlParams.get('country');
+            if (initialCountry) {
+                $(`.dropdown-item[data-value="${initialCountry}"]`).addClass('active');
+                $('.dropdown-toggle span').text(initialCountry);
+            }
+        });
+    </script>
+    
+    <style>
+        #artists-container {
+            position: relative;
+            min-height: 200px;
+        }
+        
+        #artists-container.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .dropdown-item.active {
+            background-color: #448bff;
+            color: white;
+        }
+    </style>
+}
 </body>
 
 </html>
