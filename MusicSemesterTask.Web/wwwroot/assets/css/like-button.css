@@ -1,0 +1,61 @@
+.media-action-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.media:hover .media-action-overlay {
+    opacity: 1;
+}
+
+.media:hover .hide-row {
+    opacity: 1;
+}
+
+.hide-row {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-icon {
+    padding: 0.5rem !important;
+    line-height: 1 !important;
+    border-radius: 50% !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.active-danger {
+    color: #dc3545 !important;
+    fill: #dc3545 !important;
+}
+
+.media {
+    position: relative;
+    display: block;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.media-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} 

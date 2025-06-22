@@ -4,7 +4,7 @@ namespace MusicSemesterTask.Application.Features.Songs.Commands;
 
 public class LikeSongCommand : IRequest<bool>
 {
-    public int UserId { get; set; }
+    public string UserId { get; set; }
     public int SongId { get; set; }
 }
 

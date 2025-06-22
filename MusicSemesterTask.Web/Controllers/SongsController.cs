@@ -33,7 +33,7 @@ namespace MusicSemesterTask.Web.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction("Login", "AuthView");
             }
 
             var query = _context.Songs
@@ -85,7 +85,11 @@ namespace MusicSemesterTask.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Like(int songId)
         {
-            var userId = int.Parse(User.FindFirst("UserId")?.Value ?? "0");
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
             
             var command = new LikeSongCommand
             {

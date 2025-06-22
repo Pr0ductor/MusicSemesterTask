@@ -17,7 +17,7 @@ public class LikeSongCommandHandler : IRequestHandler<LikeSongCommand, bool>
     public async Task<bool> Handle(LikeSongCommand request, CancellationToken cancellationToken)
     {
         var existingLike = await _context.Likes
-            .FirstOrDefaultAsync(l => l.UserId == request.UserId && l.SongId == request.SongId, cancellationToken);
+            .FirstOrDefaultAsync(l => l.UserId == int.Parse(request.UserId) && l.SongId == request.SongId, cancellationToken);
 
         if (existingLike != null)
         {
@@ -28,7 +28,7 @@ public class LikeSongCommandHandler : IRequestHandler<LikeSongCommand, bool>
 
         var like = new Like
         {
-            UserId = request.UserId,
+            UserId = int.Parse(request.UserId),
             SongId = request.SongId
         };
 

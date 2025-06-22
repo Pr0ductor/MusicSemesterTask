@@ -45,6 +45,22 @@ public class AuthService : IAuthService
             // Добавляем пользователя в базу данных
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
+
+            // Если пользователь регистрируется как артист, создаем запись в таблице Artists
+            if (user.Role == UserRole.Artist)
+            {
+                var artist = new Artist
+                {
+                    Name = user.UserName,
+                    ProfilePictureUrl = user.ProfilePictureUrl ?? "~/assets/img/default-artist.jpg",
+                    Country = user.Country,
+                    CreatedBy = user.Id,
+                    CreatedDate = DateTime.UtcNow
+                };
+
+                await _context.Artists.AddAsync(artist);
+                await _context.SaveChangesAsync();
+            }
             
             return (true, "User registered successfully");
         }

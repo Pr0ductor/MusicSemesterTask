@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RZIqDcCYN9k4cx0w805zi7WYZdEdXGm1SikLD7mTzyM=",
+  "Hash": "T72Ik5kHVhjZTrKxMJ2gQAZX4BcafCRCDiNlQL8SCSw=",
   "Source": "MusicSemesterTask.Web",
   "BasePath": "_content/MusicSemesterTask.Web",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/obj/Debug/net8.0/scopedcss/projectbundle/MusicSemesterTask.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/css/like-button.css",
+      "SourceId": "MusicSemesterTask.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/",
+      "BasePath": "_content/MusicSemesterTask.Web",
+      "RelativePath": "assets/css/like-button.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/css/like-button.css"
     },
     {
       "Identity": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/css/site.min.css",

@@ -12,7 +12,10 @@
     <title>Cat | Basik - Bootstrap 4 Web Application</title>
     <meta name="description" content="Responsive, Bootstrap, BS4">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><!-- style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/site.min.css">
+    <link rel="stylesheet" href="../assets/css/like-button.css">
+
     <form method="post">
         <input type="hidden" asp-antiforgery="true" />
     </form>
@@ -235,22 +238,25 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="badge badge-lg bg-light m-1">World</a></div>
             </div>
             <div class="container">
-                <h2>Песни</h2>
+                <h2>Songs</h2>
                 <div class="row">
                     @foreach (var song in Model)
                     {
                         <div class="col-4 col-sm-4 col-md-3 col-lg-2" data-id="@song.Id" data-category="@song.Genre"
-                            data-tag="@song.Country"
-                            data-source="@song.AudioUrl">
+                            data-tag="@song.Country" data-source="@song.AudioUrl">
                             <div class="list-item r">
                                 <div class="media">
                                     <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
                                     <div class="media-action media-action-overlay">
-                                        <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
-                                            <i class="@(song.Likes.Any(l => l.UserId == int.Parse(User.FindFirst("UserId")?.Value ?? "0")) ? "fas" : "far") fa-heart active-danger"></i>
-                                        </button>
-                                        <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                                        <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                                            <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)" type="button">
+                                                <i data-feather="heart" class="@(song.Likes.Any(l => l.UserId == int.Parse(userId ?? "0")) ? "active-danger" : "")"></i>
+                                            </button>
+                                        }
+                                        <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play" type="button"></button>
+                                        <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown" type="button">
                                             <i data-feather="more-horizontal"></i>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right"></div>
