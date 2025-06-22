@@ -221,8 +221,8 @@
                                 <div class="media">
                                     <a href="music.detail.html#@song.Id" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
                                     <div class="media-action media-action-overlay">
-                                        <button class="btn btn-icon no-bg no-shadow hide-row like-btn" data-song-id="@song.Id">
-                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.LikedByUsers.Any(u => u.UserName == User.Identity.Name) ? "liked" : "")"></i>
+                                        <button class="btn btn-icon no-bg no-shadow hide-row toggle-like" data-song-id="@song.Id">
+                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.Likes.Any(l => l.UserId == User.Identity.Name) ? "liked" : "")"></i>
                                         </button>
                                         <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
                                         <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
@@ -239,9 +239,9 @@
                                 </div>
                                 <div class="list-action show-row">
                                     <div class="d-flex align-items-center">
-                                        <div class="px-3 text-sm d-none d-md-block num">@song.LikedByUsers.Count</div>
-                                        <button class="btn btn-icon no-bg no-shadow like-btn" data-song-id="@song.Id">
-                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.LikedByUsers.Any(u => u.UserName == User.Identity.Name) ? "liked" : "")"></i>
+                                        <div class="px-3 text-sm d-none d-md-block num">@song.Likes.Count</div>
+                                        <button class="btn btn-icon no-bg no-shadow toggle-like" data-song-id="@song.Id">
+                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.Likes.Any(l => l.UserId == User.Identity.Name) ? "liked" : "")"></i>
                                         </button>
                                         <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
                                             <i data-feather="more-horizontal"></i>

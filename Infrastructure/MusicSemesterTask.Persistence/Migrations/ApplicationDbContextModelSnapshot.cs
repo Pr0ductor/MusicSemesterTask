@@ -34,22 +34,7 @@ namespace Market.Persistence.Migrations
 
                     b.HasIndex("FollowersId");
 
-                    b.ToTable("UserFollows", (string)null);
-                });
-
-            modelBuilder.Entity("ApplicationUserSong", b =>
-                {
-                    b.Property<string>("LikedByUsersId")
-                        .HasColumnType("text");
-
-                    b.Property<int>("LikedSongsId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("LikedByUsersId", "LikedSongsId");
-
-                    b.HasIndex("LikedSongsId");
-
-                    b.ToTable("UserLikedSongs", (string)null);
+                    b.ToTable("ApplicationUserArtist");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -277,6 +262,31 @@ namespace Market.Persistence.Migrations
                     b.ToTable("Artists");
                 });
 
+            modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("SongId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SongId");
+
+                    b.HasIndex("UserId", "SongId")
+                        .IsUnique();
+
+                    b.ToTable("Likes");
+                });
+
             modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Song", b =>
                 {
                     b.Property<int>("Id")
@@ -284,6 +294,9 @@ namespace Market.Persistence.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("text");
 
                     b.Property<int>("ArtistId")
                         .HasColumnType("integer");
@@ -314,6 +327,8 @@ namespace Market.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.HasIndex("ArtistId");
 
                     b.ToTable("Songs");
@@ -330,21 +345,6 @@ namespace Market.Persistence.Migrations
                     b.HasOne("MusicSemesterTask.Domain.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("FollowersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ApplicationUserSong", b =>
-                {
-                    b.HasOne("MusicSemesterTask.Domain.Entities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("LikedByUsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MusicSemesterTask.Domain.Entities.Song", null)
-                        .WithMany()
-                        .HasForeignKey("LikedSongsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -400,8 +400,31 @@ namespace Market.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Like", b =>
+                {
+                    b.HasOne("MusicSemesterTask.Domain.Entities.Song", "Song")
+                        .WithMany("Likes")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MusicSemesterTask.Domain.Entities.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Song");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Song", b =>
                 {
+                    b.HasOne("MusicSemesterTask.Domain.Entities.ApplicationUser", null)
+                        .WithMany("LikedSongs")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("MusicSemesterTask.Domain.Entities.Artist", "Artist")
                         .WithMany("Songs")
                         .HasForeignKey("ArtistId")
@@ -411,9 +434,19 @@ namespace Market.Persistence.Migrations
                     b.Navigation("Artist");
                 });
 
+            modelBuilder.Entity("MusicSemesterTask.Domain.Entities.ApplicationUser", b =>
+                {
+                    b.Navigation("LikedSongs");
+                });
+
             modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Artist", b =>
                 {
                     b.Navigation("Songs");
+                });
+
+            modelBuilder.Entity("MusicSemesterTask.Domain.Entities.Song", b =>
+                {
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }

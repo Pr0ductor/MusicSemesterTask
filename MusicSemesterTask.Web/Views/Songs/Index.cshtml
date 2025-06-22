@@ -232,10 +232,10 @@
                                     <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)">
                                         <div class="media-action media-action-overlay">
                                             <!-- Кнопка лайка -->
-                                            <button class="btn btn-icon no-bg no-shadow hide-row like-button" data-song-id="@song.Id">
-                                                <i data-feather="heart" class="@(User.Identity.IsAuthenticated && song.LikedByUsers.Any(u => u.UserName == User.Identity.Name) ? "liked" : "")"></i>
+                                            <button class="btn btn-icon no-bg no-shadow hide-row toggle-like" data-song-id="@song.Id">
+                                                <i data-feather="heart" class="@(User.Identity.IsAuthenticated && song.Likes.Any(l => l.UserId == User.Identity.Name) ? "liked" : "")"></i>
                                             </button>
-                                            <div class="likes-count">@song.LikedByUsers.Count Likes</div>
+                                            <div class="likes-count">@song.Likes.Count Likes</div>
                                             <!-- Кнопка проигрывания -->
                                             <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"
                                                     onclick="playTrack('@song.AudioUrl')">
@@ -249,7 +249,7 @@
                                         <a href="#" class="list-title">@song.Artist?.Name</a>
                                     </div>
                                     <div class="likes-count">
-                                        @song.LikedByUsers.Count Likes
+                                        @song.Likes.Count Likes
                                     </div>
                                 </div>
                             </div>

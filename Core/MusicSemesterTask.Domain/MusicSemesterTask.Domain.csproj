@@ -7,8 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Common\Interfaces\" />
-      <Folder Include="Enums\" />
       <Folder Include="Extensions\" />
     </ItemGroup>
 

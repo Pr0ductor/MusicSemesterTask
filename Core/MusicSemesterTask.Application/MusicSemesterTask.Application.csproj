@@ -16,7 +16,6 @@
       <Folder Include="Features\Playlists\" />
       <Folder Include="Features\Songs\" />
       <Folder Include="Interfaces\Repositories\" />
-      <Folder Include="Interfaces\Services\" />
       <Folder Include="Localization\" />
       <Folder Include="Middlewares\" />
     </ItemGroup>

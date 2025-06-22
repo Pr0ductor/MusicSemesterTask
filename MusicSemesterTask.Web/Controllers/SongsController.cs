@@ -26,10 +26,11 @@ namespace MusicSemesterTask.Web.Controllers
         
         public IActionResult Index()
         {
-            var songs = _context.Songs.ToList(); // Получаем список песен
-            return View(songs); // Передаём их в представление
+            var songs = _context.Songs
+                .Include(s => s.Likes) // Загружаем лайки
+                .ToList();
+            return View(songs);
         }
-        
         [HttpPost]
         public IActionResult Create(Song song)
         {
@@ -51,31 +52,37 @@ namespace MusicSemesterTask.Web.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> LikeSong(int songId)
+        public async Task<IActionResult> ToggleLike(int songId)
         {
-            var song = await _context.Songs
-                .Include(s => s.LikedByUsers)
-                .FirstOrDefaultAsync(s => s.Id == songId);
-
-            if (song == null)
-                return NotFound();
-
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-                return Unauthorized();
+            if (user == null) return Unauthorized();
 
-            if (!song.LikedByUsers.Any(u => u.Id == user.Id))
+            var existingLike = await _context.Likes
+                .FirstOrDefaultAsync(l => l.UserId == user.Id && l.SongId == songId);
+
+            if (existingLike != null)
             {
-                song.LikedByUsers.Add(user);
+                // Удаляем лайк, если он уже существует
+                _context.Likes.Remove(existingLike);
             }
             else
             {
-                song.LikedByUsers.Remove(user);
+                // Добавляем новый лайк
+                var like = new Like
+                {
+                    UserId = user.Id,
+                    SongId = songId
+                };
+                _context.Likes.Add(like);
             }
 
             await _context.SaveChangesAsync();
 
-            return Ok(new { likesCount = song.LikedByUsers.Count });
+            var likesCount = await _context.Likes
+                .Where(l => l.SongId == songId)
+                .CountAsync();
+
+            return Ok(new { liked = existingLike == null, likesCount });
         }
     }
 }

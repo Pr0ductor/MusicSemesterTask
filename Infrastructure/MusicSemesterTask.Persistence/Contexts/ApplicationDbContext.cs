@@ -5,30 +5,25 @@ using MusicSemesterTask.Domain.Entities;
 
 namespace MusicSemesterTask.Persistence.Contexts;
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+public class ApplicationDbContext : IdentityDbContext
 {
-    public DbSet<Song> Songs { get; set; }
-    public DbSet<Artist> Artists { get; set; }
-
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    public DbSet<Song> Songs { get; set; }
+    public DbSet<Artist> Artists { get; set; }
+    public DbSet<Like> Likes { get; set; }
+    public DbSet<ArtistSubscription> ArtistSubscriptions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
-        // Many-to-many: ApplicationUser - LikedSongs
-        builder.Entity<ApplicationUser>()
-            .HasMany(u => u.LikedSongs)
-            .WithMany(s => s.LikedByUsers)
-            .UsingEntity(j => j.ToTable("UserLikedSongs"));
-
-        // Many-to-many: ApplicationUser - FollowedArtists
-        builder.Entity<ApplicationUser>()
-            .HasMany(u => u.FollowedArtists)
-            .WithMany(a => a.Followers)
-            .UsingEntity(j => j.ToTable("UserFollows"));
+        // Уникальный индекс для предотвращения дублирования лайков
+        builder.Entity<Like>()
+            .HasIndex(l => new { l.UserId, l.SongId })
+            .IsUnique();
     }
 }

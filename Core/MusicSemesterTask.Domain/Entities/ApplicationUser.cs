@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using MusicSemesterTask.Domain.Common;
 
 namespace MusicSemesterTask.Domain.Entities;
 
-public class ApplicationUser : IdentityUser
+public class ApplicationUser : BaseAuditableEntity
 {
-    public string Role { get; set; } // "user" или "artist"
-    public ICollection<Song> LikedSongs { get; set; } = new List<Song>();
-    public ICollection<Artist> FollowedArtists { get; set; } = new List<Artist>();
+    public string IdentityId { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+
 }

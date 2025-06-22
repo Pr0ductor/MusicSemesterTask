@@ -9,16 +9,13 @@ namespace MusicSemesterTask.Persistence.Contexts
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
+            var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-
-            builder.UseNpgsql(connectionString);
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
 
             return new ApplicationDbContext(builder.Options);
         }
