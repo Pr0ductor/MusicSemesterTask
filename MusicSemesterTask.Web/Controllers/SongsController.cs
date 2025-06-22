@@ -5,20 +5,27 @@ using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
 using MusicSemesterTask.Web.Hubs;
 using System.Security.Claims;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using MusicSemesterTask.Application.Features.Songs.Commands;
 
 namespace MusicSemesterTask.Web.Controllers
 {
+    [Authorize]
     public class SongsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IHubContext<NotificationHub> _hubContext;
+        private readonly IMediator _mediator;
 
         public SongsController(
             ApplicationDbContext context,
-            IHubContext<NotificationHub> hubContext)
+            IHubContext<NotificationHub> hubContext,
+            IMediator mediator)
         {
             _context = context;
             _hubContext = hubContext;
+            _mediator = mediator;
         }
         
         public async Task<IActionResult> Index(string searchQuery = "", int? artistId = null, string sortBy = "")
@@ -78,31 +85,16 @@ namespace MusicSemesterTask.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Like(int songId)
         {
-            var user = await _context.ApplicationUsers.FirstOrDefaultAsync(u => u.Id == int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
-            if (user == null)
-                return NotFound();
-
-            var existingLike = await _context.Likes
-                .FirstOrDefaultAsync(l => l.UserId == user.Id && l.SongId == songId);
-
-            if (existingLike != null)
+            var userId = int.Parse(User.FindFirst("UserId")?.Value ?? "0");
+            
+            var command = new LikeSongCommand
             {
-                _context.Likes.Remove(existingLike);
-            }
-            else
-            {
-                var like = new Like
-                {
-                    UserId = user.Id,
-                    SongId = songId
-                };
-                _context.Likes.Add(like);
-            }
+                SongId = songId,
+                UserId = userId
+            };
 
-            await _context.SaveChangesAsync();
-
-            var likesCount = await _context.Likes.Where(l => l.SongId == songId).CountAsync();
-            return Json(new { likesCount });
+            var isLiked = await _mediator.Send(command);
+            return Json(new { success = true, isLiked });
         }
     }
 }

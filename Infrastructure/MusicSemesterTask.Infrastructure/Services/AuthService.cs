@@ -28,13 +28,13 @@ public class AuthService : IAuthService
         try
         {
             // Проверяем, существует ли пользователь с таким email
-            if (await _context.ApplicationUsers.AnyAsync(u => u.Email == user.Email))
+            if (await _context.Users.AnyAsync(u => u.Email == user.Email))
             {
                 return (false, "User with this email already exists");
             }
 
             // Проверяем, существует ли пользователь с таким username
-            if (await _context.ApplicationUsers.AnyAsync(u => u.UserName == user.UserName))
+            if (await _context.Users.AnyAsync(u => u.UserName == user.UserName))
             {
                 return (false, "User with this username already exists");
             }
@@ -43,7 +43,7 @@ public class AuthService : IAuthService
             user.Password = BC.HashPassword(password);
             
             // Добавляем пользователя в базу данных
-            await _context.ApplicationUsers.AddAsync(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             
             return (true, "User registered successfully");
@@ -54,20 +54,20 @@ public class AuthService : IAuthService
         }
     }
 
-    public async Task<(bool Success, string Token, string Message, string UserName, string UserId, string Role)> LoginAsync(string email, string password)
+    public async Task<(bool Success, string Token, string Message, string UserName, string UserId, string Role, string? ProfilePictureUrl)> LoginAsync(string email, string password)
     {
         try
         {
-            var user = await _context.ApplicationUsers.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
             {
-                return (false, string.Empty, "User not found", string.Empty, string.Empty, string.Empty);
+                return (false, string.Empty, "User not found", string.Empty, string.Empty, string.Empty, null);
             }
 
             if (!BC.Verify(password, user.Password))
             {
-                return (false, string.Empty, "Invalid password", string.Empty, string.Empty, string.Empty);
+                return (false, string.Empty, "Invalid password", string.Empty, string.Empty, string.Empty, null);
             }
 
             var claims = new List<Claim>
@@ -80,13 +80,25 @@ public class AuthService : IAuthService
                 new(ClaimTypes.Role, user.Role.ToString())
             };
 
+            // Добавляем ProfilePictureUrl только если он не пустой
+            if (!string.IsNullOrEmpty(user.ProfilePictureUrl))
+            {
+                // Нормализуем путь к изображению
+                var profilePicturePath = user.ProfilePictureUrl;
+                if (profilePicturePath.StartsWith("../"))
+                {
+                    profilePicturePath = profilePicturePath.TrimStart('.');
+                }
+                claims.Add(new Claim("ProfilePictureUrl", profilePicturePath));
+            }
+
             var token = GenerateJwtToken(claims);
 
-            return (true, token, "Login successful", user.UserName, user.Id.ToString(), user.Role.ToString());
+            return (true, token, "Login successful", user.UserName, user.Id.ToString(), user.Role.ToString(), user.ProfilePictureUrl);
         }
         catch (Exception ex)
         {
-            return (false, string.Empty, $"Login failed: {ex.Message}", string.Empty, string.Empty, string.Empty);
+            return (false, string.Empty, $"Login failed: {ex.Message}", string.Empty, string.Empty, string.Empty, null);
         }
     }
 
@@ -108,7 +120,7 @@ public class AuthService : IAuthService
         var userId = int.Parse(principal.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new Exception("Invalid token"));
 
         // Находим пользователя
-        var user = await _context.ApplicationUsers.FindAsync(userId) ?? throw new Exception("User not found");
+        var user = await _context.Users.FindAsync(userId) ?? throw new Exception("User not found");
 
         // Генерируем новый токен
         return GenerateJwtToken(new List<Claim>

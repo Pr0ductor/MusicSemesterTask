@@ -141,7 +141,20 @@
 						<li class="nav-item dropdown">
 							<a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center px-2 text-color">
 								<span class="dropdown-toggle mx-2 d-none l-h-1x d-lg-block text-right">@User.Identity.Name</span>
-								<span class="avatar w-24" style="margin: -2px"><img src="~/assets/img/a0.jpg" alt="..."></span>
+								@{
+									var profilePicture = User.Claims.FirstOrDefault(c => c.Type == "ProfilePictureUrl")?.Value;
+									if (!string.IsNullOrEmpty(profilePicture))
+									{
+										// Если путь начинается с "../", заменяем на "~/"
+										profilePicture = profilePicture.StartsWith("../") ? profilePicture.Replace("../", "~/") : profilePicture;
+									}
+								}
+								@if (!string.IsNullOrEmpty(profilePicture))
+								{
+									<span class="avatar w-24" style="margin: -2px">
+										<img src="@Url.Content(profilePicture)" alt="Profile Picture">
+									</span>
+								}
 							</a>
 							<div class="dropdown-menu dropdown-menu-right w mt-3 animate fadeIn">
 								<a class="dropdown-item" href="#">Profile</a>
@@ -163,7 +176,7 @@
 				
 			</ul>
 		</div>
-	</div><!-- ############ Footer END--><!-- ############ Content START-->
+	</div><!-- ############ Header END--><!-- ############ Content START-->
 	<div id="content" class="flex"><!-- ############ Main START-->
 		<div class="page-container">
 			<div class="padding sr">

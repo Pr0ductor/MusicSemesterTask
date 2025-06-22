@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.Tokens;
 using MusicSemesterTask.Application.Features.Auth.Commands;
+using MusicSemesterTask.Application.Features.Songs.Commands;
+using MusicSemesterTask.Application.Interfaces;
 using MusicSemesterTask.Application.Interfaces.Services;
 using MusicSemesterTask.Infrastructure.Services;
 using MediatR;
@@ -24,6 +26,10 @@ builder.Services.AddControllersWithViews();
 // Настройка DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register IApplicationDbContext
+builder.Services.AddScoped<IApplicationDbContext>(provider => 
+    provider.GetRequiredService<ApplicationDbContext>());
 
 // Настройка аутентификации
 builder.Services.AddAuthentication(options =>
@@ -69,6 +75,8 @@ builder.Services.AddHttpContextAccessor();
 
 // Добавление MediatR
 builder.Services.AddMediatR(typeof(LoginCommand).Assembly);
+builder.Services.AddMediatR(typeof(Program).Assembly);
+builder.Services.AddMediatR(typeof(LikeSongCommand).Assembly);
 
 var app = builder.Build();
 

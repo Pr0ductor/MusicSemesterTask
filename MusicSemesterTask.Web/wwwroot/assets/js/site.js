@@ -36,3 +36,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+function toggleLike(songId, button) {
+    $.ajax({
+        url: '/Songs/Like',
+        type: 'POST',
+        data: { songId: songId },
+        success: function(response) {
+            if (response.success) {
+                const icon = button.querySelector('i');
+                if (response.isLiked) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                }
+            }
+        },
+        error: function() {
+            alert('Произошла ошибка при обработке лайка');
+        }
+    });
+}

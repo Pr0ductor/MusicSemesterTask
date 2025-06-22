@@ -100,6 +100,12 @@ public class AuthViewController : Controller
             new Claim(ClaimTypes.Role, result.Role)
         };
 
+        // Добавляем ProfilePictureUrl только если он не пустой
+        if (!string.IsNullOrEmpty(result.ProfilePictureUrl))
+        {
+            claims.Add(new Claim("ProfilePictureUrl", result.ProfilePictureUrl));
+        }
+
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
         var authProperties = new AuthenticationProperties
