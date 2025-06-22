@@ -207,16 +207,23 @@
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="row list media-circle">
                     @foreach (var artist in Model)
                     {
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img src="@artist.ProfilePictureUrl" class="card-img-top" alt="@artist.Name">
-                                <div class="card-body">
-                                    <h5 class="card-title">@artist.Name</h5>
-                                    <p class="card-text">Country: @artist.Country</p>
-                                    <p class="card-text">Subscribers: @artist.Subscribers.Count()</p>
+                        <div class="col-4 col-sm-3 col-md-2-4 col-lg-2 col-xl-1-8" data-id="@artist.Id"
+                            data-category="" data-tag="@artist.Country"
+                            data-source="">
+                            <div class="list-item r">
+                                <div class="media">
+                                    <a href="music.artist.html#@artist.Id" class="ajax media-content"
+                                        style="background-image:url(@(artist.ProfilePictureUrl ?? "../assets/img/a14.jpg"))"></a>
+                                    <div class="media-action"></div>
+                                </div>
+                                <div class="list-content text-center">
+                                    <div class="list-body">
+                                        <a href="music.artist.html#@artist.Id"
+                                            class="list-subtitle d-block text-muted subtitle ajax h-1x">@artist.Name</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

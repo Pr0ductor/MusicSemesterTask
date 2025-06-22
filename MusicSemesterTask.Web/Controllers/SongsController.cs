@@ -62,27 +62,29 @@ namespace MusicSemesterTask.Web.Controllers
             var songs = await query.ToListAsync();
             return View(songs);
         }
-        [HttpPost]
-        public IActionResult Create(Song song)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Songs.Add(song);
-                _context.SaveChanges();
-
-                // Отправка уведомления подписчикам артиста
-                var artist = _context.Artists.Find(song.ArtistId);
-                if (artist != null)
-                {
-                    _hubContext.Clients.Group(artist.Name).SendAsync("ReceiveTrackUpdate", artist.Name, song.Title);
-                }
-
-                return RedirectToAction("Index");
-            }
-            return View(song);
-        }
+        
+        // [HttpPost]
+        // public IActionResult Create(Song song)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         _context.Songs.Add(song);
+        //         _context.SaveChanges();
+        //
+        //         // Отправка уведомления подписчикам артиста
+        //         var artist = _context.Artists.Find(song.ArtistId);
+        //         if (artist != null)
+        //         {
+        //             _hubContext.Clients.Group(artist.Name).SendAsync("ReceiveTrackUpdate", artist.Name, song.Title);
+        //         }
+        //
+        //         return RedirectToAction("Index");
+        //     }
+        //     return View(song);
+        // }
         
         [HttpPost]
+        [IgnoreAntiforgeryToken]
         public async Task<IActionResult> Like(int songId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

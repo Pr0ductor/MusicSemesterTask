@@ -5,15 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function toggleLike(songId, button) {
-    const antiForgeryToken = $('input[name="__RequestVerificationToken"]').val();
-    
     $.ajax({
         url: '/Songs/Like',
         type: 'POST',
         data: { songId: songId },
-        headers: {
-            'RequestVerificationToken': antiForgeryToken
-        },
         success: function(response) {
             if (response.success) {
                 const icon = button.querySelector('i');
@@ -22,7 +17,7 @@ function toggleLike(songId, button) {
                 } else {
                     icon.classList.remove('active-danger');
                 }
-                // Re-render Feather icons
+
                 if (typeof feather !== 'undefined') {
                     feather.replace();
                 }

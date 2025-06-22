@@ -146,7 +146,8 @@
 							data-feather="bell"></i> <span class="badge badge-pill badge-up bg-primary"></span>
 					</a>
 				</li><!-- User dropdown menu -->
-				<!-- Меню пользователя -->
+                <!-- Меню пользователя -->
+                
 				<ul class="nav navbar-menu order-1 order-lg-2">
 					@if (User.Identity.IsAuthenticated)
 					{
@@ -239,6 +240,9 @@
             </div>
             <div class="container">
                 <h2>Songs</h2>
+                <form style="display:none">
+                    @Html.AntiForgeryToken()
+                </form>
                 <div class="row">
                     @foreach (var song in Model)
                     {
