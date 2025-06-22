@@ -13,6 +13,7 @@ using MusicSemesterTask.Application.Interfaces;
 using MusicSemesterTask.Application.Interfaces.Services;
 using MusicSemesterTask.Infrastructure.Services;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Register IApplicationDbContext
 builder.Services.AddScoped<IApplicationDbContext>(provider => 
     provider.GetRequiredService<ApplicationDbContext>());
+
+// Add Identity services
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
 // Настройка аутентификации
 builder.Services.AddAuthentication(options =>

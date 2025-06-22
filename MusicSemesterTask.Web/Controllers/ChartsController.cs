@@ -1,32 +1,35 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
+using MediatR;
+using MusicSemesterTask.Application.Features.Charts.Queries;
+using MusicSemesterTask.Application.Interfaces.Services;
+using System.Security.Claims;
 
 namespace MusicSemesterTask.Controllers
 {
     public class ChartsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IAuthService _authService;
+        private readonly IMediator _mediator;
 
-        public ChartsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public ChartsController(
+            ApplicationDbContext context, 
+            IAuthService authService, 
+            IMediator mediator)
         {
             _context = context;
-            _userManager = userManager;
+            _authService = authService;
+            _mediator = mediator;
         }
 
         // GET: /Charts/Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            // Получаем топ-20 песен по количеству лайков
-            // var topSongs = _context.Songs
-            //     .OrderByDescending(s => s.LikedByUsers.Count) // Сортировка по количеству лайков
-            //     .Take(20) // Берём первые 20 песен
-            //     .ToList();
-
-            // return View(topSongs
-            return View();
+            var query = new GetTopSongsQuery();
+            var songs = await _mediator.Send(query);
+            return View(songs);
         }
 
         // // POST: /Charts/LikeSong
