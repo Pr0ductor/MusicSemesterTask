@@ -1,32 +1,45 @@
 using Microsoft.AspNetCore.Mvc;
-using MusicSemesterTask.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
+using MusicSemesterTask.Domain.Enums;
+using MusicSemesterTask.Persistence.Contexts;
 
 namespace MusicSemesterTask.Web.Controllers
 {
     public class ArtistsController : Controller
     {
-        private readonly IArtistRepository _artistRepository;
+        private readonly ApplicationDbContext _context;
 
-        public ArtistsController(IArtistRepository artistRepository)
+        public ArtistsController(ApplicationDbContext context)
         {
-            _artistRepository = artistRepository;
+            _context = context;
         }
 
-        public IActionResult Index(string countryFilter)
+        public async Task<IActionResult> Index(string searchQuery = "", Country? country = null, string sortBy = "")
         {
-            var artists = _artistRepository.GetArtists();
+            var query = _context.Artists.AsQueryable();
 
-            // Применяем фильтр по стране, если он указан
-            if (!string.IsNullOrEmpty(countryFilter))
+            if (!string.IsNullOrEmpty(searchQuery))
             {
-                artists = artists.Where(a => a.Country == countryFilter);
+                query = query.Where(a => a.Name.Contains(searchQuery));
             }
 
-            // Сортируем артистов по количеству подписчиков
-            artists = artists.OrderByDescending(a => a.Followers.Count());
+            if (country.HasValue)
+            {
+                query = query.Where(a => a.Country == country);
+            }
 
-            return View(artists.ToList());
+            query = sortBy switch
+            {
+                "name_desc" => query.OrderByDescending(a => a.Name),
+                "name" => query.OrderBy(a => a.Name),
+                "subscribers_desc" => query.OrderByDescending(a => a.Subscribers.Count),
+                "subscribers" => query.OrderBy(a => a.Subscribers.Count),
+                _ => query.OrderBy(a => a.Name)
+            };
+
+            var artists = await query.ToListAsync();
+            return View(artists);
         }
     }
 }

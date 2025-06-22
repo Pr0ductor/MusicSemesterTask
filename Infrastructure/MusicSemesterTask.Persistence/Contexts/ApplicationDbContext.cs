@@ -1,19 +1,17 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
 
 namespace MusicSemesterTask.Persistence.Contexts;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
+
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-    public DbSet<Song> Songs { get; set; }
     public DbSet<Artist> Artists { get; set; }
+    public DbSet<Song> Songs { get; set; }
     public DbSet<Like> Likes { get; set; }
     public DbSet<ArtistSubscription> ArtistSubscriptions { get; set; }
 
@@ -25,5 +23,20 @@ public class ApplicationDbContext : IdentityDbContext
         builder.Entity<Like>()
             .HasIndex(l => new { l.UserId, l.SongId })
             .IsUnique();
+
+        // Составной первичный ключ для ArtistSubscription
+        builder.Entity<ArtistSubscription>()
+            .HasKey(a => new { a.UserId, a.ArtistId });
+
+        // Настройка связей для ArtistSubscription
+        builder.Entity<ArtistSubscription>()
+            .HasOne<ApplicationUser>()
+            .WithMany(u => u.Subscriptions)
+            .HasForeignKey(a => a.UserId);
+
+        builder.Entity<ArtistSubscription>()
+            .HasOne<Artist>()
+            .WithMany(a => a.Subscribers)
+            .HasForeignKey(a => a.ArtistId);
     }
 }

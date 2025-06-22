@@ -1,49 +1,76 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
 using MusicSemesterTask.Persistence.Repositories;
 using MusicSemesterTask.Web.Hubs;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.IdentityModel.Tokens;
+using MusicSemesterTask.Application.Features.Auth.Commands;
+using MusicSemesterTask.Application.Interfaces.Services;
+using MusicSemesterTask.Infrastructure.Services;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Регистрация репозиториев
 builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Добавление служб
 builder.Services.AddControllersWithViews();
 
-// Настройка Identity
+// Настройка DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-    {
-        options.Password.RequireDigit = true;
-        options.Password.RequireLowercase = true;
-        options.Password.RequireUppercase = true;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequiredLength = 6;
-
-        options.User.RequireUniqueEmail = true;
-    })
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
-
-builder.Services.ConfigureApplicationCookie(options =>
+// Настройка аутентификации
+builder.Services.AddAuthentication(options =>
 {
-    options.LoginPath = "/Auth/Login";
-    options.AccessDeniedPath = "/Home/AccessDenied";
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/AuthView/Login";
+    options.LogoutPath = "/AuthView/Logout";
+    options.AccessDeniedPath = "/AuthView/AccessDenied";
+    options.Cookie.Name = "AuthCookie";
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    options.SlidingExpiration = true;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+    
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            context.Token = context.Request.Cookies["jwt"];
+            return Task.CompletedTask;
+        }
+    };
 });
 
 builder.Services.AddSignalR();
 builder.Services.AddHttpContextAccessor();
 
-var app = builder.Build();
+// Добавление MediatR
+builder.Services.AddMediatR(typeof(LoginCommand).Assembly);
 
-// SignalR Hub
-app.MapHub<NotificationHub>("/notificationHub");
+var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
@@ -53,15 +80,16 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
-// Identity Middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Маршруты MVC
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapHub<NotificationHub>("/notificationHub");
 
 app.Run();

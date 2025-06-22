@@ -18,6 +18,6 @@ public class Song : BaseEntity
     // Связь с артистом
     public int ArtistId { get; set; }
     public Artist Artist { get; set; }
-
-
+    
+    public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
 }

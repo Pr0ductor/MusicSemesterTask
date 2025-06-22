@@ -1,3 +1,4 @@
+@using System.Security.Claims
 @model IEnumerable<MusicSemesterTask.Domain.Entities.Song>
 @{
     ViewData["Title"] = "Charts";
@@ -222,7 +223,14 @@
                                     <a href="music.detail.html#@song.Id" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
                                     <div class="media-action media-action-overlay">
                                         <button class="btn btn-icon no-bg no-shadow hide-row toggle-like" data-song-id="@song.Id">
-                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.Likes.Any(l => l.UserId == User.Identity.Name) ? "liked" : "")"></i>
+                                            @if (song.Likes.Any(l => l.UserId == int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)))
+                                            {
+                                                <i data-feather="heart" class="active-danger liked"></i>
+                                            }
+                                            else
+                                            {
+                                                <i data-feather="heart" class="active-danger"></i>
+                                            }
                                         </button>
                                         <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
                                         <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
@@ -241,7 +249,14 @@
                                     <div class="d-flex align-items-center">
                                         <div class="px-3 text-sm d-none d-md-block num">@song.Likes.Count</div>
                                         <button class="btn btn-icon no-bg no-shadow toggle-like" data-song-id="@song.Id">
-                                            <i data-feather="heart" class="active-danger @(User.Identity.IsAuthenticated && song.Likes.Any(l => l.UserId == User.Identity.Name) ? "liked" : "")"></i>
+                                            @if (song.Likes.Any(l => l.UserId == int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)))
+                                            {
+                                                <i data-feather="heart" class="active-danger liked"></i>
+                                            }
+                                            else
+                                            {
+                                                <i data-feather="heart" class="active-danger"></i>
+                                            }
                                         </button>
                                         <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
                                             <i data-feather="more-horizontal"></i>
@@ -284,6 +299,21 @@
     </div><!-- ############ Footer END-->
 </div>
 <script src="../assets/js/site.min.js"></script>
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.toggle-like').click(function() {
+                var songId = $(this).data('song-id');
+                var button = $(this);
+                
+                $.post('/Songs/Like', { songId: songId }, function(response) {
+                    $('#likes-count-' + songId).text(response.likesCount);
+                    button.find('i').toggleClass('far fas');
+                });
+            });
+        });
+    </script>
+}
 </body>
 
 </html>

@@ -22,12 +22,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXJ0aXN0cy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/Auth/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9Mb2dpbi5jc2h0bWw=
+[/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/AuthView/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aFZpZXcvTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/Auth/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9SZWdpc3Rlci5jc2h0bWw=
+[/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/AuthView/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aFZpZXcvUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/Charts/Index.cshtml]

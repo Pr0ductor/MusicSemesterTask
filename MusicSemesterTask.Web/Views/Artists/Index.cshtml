@@ -197,14 +197,13 @@
                 <div class="row">
                     @foreach (var artist in Model)
                     {
-                        <div class="col-md-4">
-                            <div class="card mb-3">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
                                 <img src="@artist.ProfilePictureUrl" class="card-img-top" alt="@artist.Name">
                                 <div class="card-body">
                                     <h5 class="card-title">@artist.Name</h5>
                                     <p class="card-text">Country: @artist.Country</p>
-                                    <p class="card-text">Followers: @artist.Followers.Count()</p>
-                                    <a href="#" class="btn btn-primary">Follow</a>
+                                    <p class="card-text">Subscribers: @artist.Subscribers.Count()</p>
                                 </div>
                             </div>
                         </div>

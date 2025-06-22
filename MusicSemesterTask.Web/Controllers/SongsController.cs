@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
 using MusicSemesterTask.Web.Hubs;
+using System.Security.Claims;
 
 namespace MusicSemesterTask.Web.Controllers
 {
@@ -12,23 +12,47 @@ namespace MusicSemesterTask.Web.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IHubContext<NotificationHub> _hubContext;
-        private readonly UserManager<ApplicationUser> _userManager;
 
         public SongsController(
             ApplicationDbContext context,
-            IHubContext<NotificationHub> hubContext,
-            UserManager<ApplicationUser> userManager)
+            IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _hubContext = hubContext;
-            _userManager = userManager;
         }
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchQuery = "", int? artistId = null, string sortBy = "")
         {
-            var songs = _context.Songs
-                .Include(s => s.Likes) // Загружаем лайки
-                .ToList();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            var query = _context.Songs
+                .Include(s => s.Artist)
+                .Include(s => s.Likes)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                query = query.Where(s => s.Title.Contains(searchQuery) || s.Artist.Name.Contains(searchQuery));
+            }
+
+            if (artistId.HasValue)
+            {
+                query = query.Where(s => s.ArtistId == artistId.Value);
+            }
+
+            query = sortBy.ToLower() switch
+            {
+                "title" => query.OrderBy(s => s.Title),
+                "artist" => query.OrderBy(s => s.Artist.Name),
+                "likes" => query.OrderByDescending(s => s.Likes.Count()),
+                _ => query.OrderByDescending(s => s.Id)
+            };
+
+            var songs = await query.ToListAsync();
             return View(songs);
         }
         [HttpPost]
@@ -52,22 +76,21 @@ namespace MusicSemesterTask.Web.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> ToggleLike(int songId)
+        public async Task<IActionResult> Like(int songId)
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null) return Unauthorized();
+            var user = await _context.ApplicationUsers.FirstOrDefaultAsync(u => u.Id == int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            if (user == null)
+                return NotFound();
 
             var existingLike = await _context.Likes
                 .FirstOrDefaultAsync(l => l.UserId == user.Id && l.SongId == songId);
 
             if (existingLike != null)
             {
-                // Удаляем лайк, если он уже существует
                 _context.Likes.Remove(existingLike);
             }
             else
             {
-                // Добавляем новый лайк
                 var like = new Like
                 {
                     UserId = user.Id,
@@ -78,11 +101,8 @@ namespace MusicSemesterTask.Web.Controllers
 
             await _context.SaveChangesAsync();
 
-            var likesCount = await _context.Likes
-                .Where(l => l.SongId == songId)
-                .CountAsync();
-
-            return Ok(new { liked = existingLike == null, likesCount });
+            var likesCount = await _context.Likes.Where(l => l.SongId == songId).CountAsync();
+            return Json(new { likesCount });
         }
     }
 }

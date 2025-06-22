@@ -1,88 +1,45 @@
-using Microsoft.AspNetCore.Identity;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MusicSemesterTask.Domain.Entities;
+using MusicSemesterTask.Application.Features.Auth.Commands;
 
-namespace MusicSemesterTask.Web.Controllers
+namespace MusicSemesterTask.Web.Controllers.Auth;
+
+[ApiController]
+[Route("api/[controller]")]
+public class AuthController : ControllerBase
 {
-    public class AuthController : Controller
+    private readonly IMediator _mediator;
+
+    public AuthController(IMediator mediator)
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        _mediator = mediator;
+    }
 
-        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginCommand command)
+    {
+        try
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            var token = await _mediator.Send(command);
+            return Ok(new { token });
         }
-
-        [HttpGet]
-        public IActionResult Register()
+        catch (Exception ex)
         {
-            return View();
+            return BadRequest(new { error = ex.Message });
         }
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(string email, string password, string confirmPassword, string role)
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterCommand command)
+    {
+        try
         {
-            if (password != confirmPassword)
-            {
-                ModelState.AddModelError("", "Passwords do not match.");
-                return View();
-            }
-
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser
-                {
-                    UserName = email,
-                    Email = email,
-                    Role = role // Устанавливаем роль пользователя
-                };
-
-                var result = await _userManager.CreateAsync(user, password);
-
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-
-                // Отладочная информация ошибках
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                    Console.WriteLine($"Error: {error.Code} - {error.Description}");
-                }
-            }
-
-            return View();
+            var token = await _mediator.Send(command);
+            return Ok(new { token });
         }
-
-        [HttpGet]
-        public IActionResult Login()
+        catch (Exception ex)
         {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
-        {
-            var result = await _signInManager.PasswordSignInAsync(email, password, false, lockoutOnFailure: false);
-
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            ModelState.AddModelError("", "Invalid login attempt.");
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return BadRequest(new { error = ex.Message });
         }
     }
 }
