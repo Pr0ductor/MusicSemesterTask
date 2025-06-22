@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicSemesterTask.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+229a5a01fa368ef9b7754ed0af3fbd4f60cd1430")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24eb1f40542762513338268ad0d362e6a40ae719")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicSemesterTask.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicSemesterTask.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

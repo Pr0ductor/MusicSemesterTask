@@ -1,21 +1,30 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MusicSemesterTask.Models;
+using MediatR;
+using MusicSemesterTask.Application.Features.Home.Queries;
 
 namespace MusicSemesterTask.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IMediator _mediator;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var viewModel = new HomeViewModel
+        {
+            LatestSongs = await _mediator.Send(new GetLatestFiveSongsQuery()),
+            TopSongs = await _mediator.Send(new GetTopTwelveSongsQuery())
+        };
+        return View(viewModel);
     }
 
     public IActionResult Privacy()

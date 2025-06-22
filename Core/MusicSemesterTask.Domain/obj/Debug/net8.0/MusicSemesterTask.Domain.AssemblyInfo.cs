@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicSemesterTask.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4edb96ea8b15cc64a7c52b9eed2947b025edc3a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24eb1f40542762513338268ad0d362e6a40ae719")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicSemesterTask.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicSemesterTask.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

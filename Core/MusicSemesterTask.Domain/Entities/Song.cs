@@ -6,7 +6,7 @@ using MusicSemesterTask.Domain.Enums;
 
 namespace MusicSemesterTask.Domain.Entities;
 
-public class Song : BaseEntity
+public class Song : BaseAuditableEntity
 {
     public string Title { get; set; }
     public string ArtistName { get; set; }
@@ -14,6 +14,7 @@ public class Song : BaseEntity
     public Country Country { get; set; }
     public string CoverUrl { get; set; }
     public string AudioUrl { get; set; }
+    public TimeSpan Duration { get; set; }
 
     // Связь с артистом
     public int ArtistId { get; set; }
