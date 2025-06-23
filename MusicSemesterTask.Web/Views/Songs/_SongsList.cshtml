@@ -31,8 +31,8 @@
                     </div>
                     <div class="list-content text-center">
                         <div class="list-body">
-                            <a href="#" class="list-title title ajax h-1x">@song.Title</a>
-                            <a href="#" class="list-subtitle d-block text-muted h-1x subtitle ajax">@song.Artist?.Name</a>
+                            <a href="" class="list-title title ajax h-1x">@song.Title</a>
+                            <a  class="list-subtitle d-block text-muted h-1x subtitle ajax" asp-controller="ArtistProfile" asp-action="Index">@song.Artist.Name</a>
                         </div>
                     </div>
                 </div>

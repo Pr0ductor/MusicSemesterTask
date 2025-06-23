@@ -20,7 +20,7 @@
                 <div class="list-content">
                     <div class="list-body">
                         <div class="list-title title h-1x">@song.Title</div>
-                        <div class="list-subtitle subtitle h-1x text-muted">@song.Artist.Name</div>
+                        <a  class="list-subtitle subtitle h-1x text-muted" asp-controller="ArtistProfile" asp-action="Index">@song.Artist.Name</a>
                     </div>
                 </div>
                 <div class="list-action ml-3">

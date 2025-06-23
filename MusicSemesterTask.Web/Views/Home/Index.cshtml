@@ -301,7 +301,8 @@
 										</div>
 										<div class="flex">
 											<a href="music.detail.html#@song.Id" class="item-title text-color h-1x">@song.Title</a>
-											<a href="music.artist.html#@song.ArtistId" class="item-author text-muted h-1x">@song.Artist.Name</a>
+											<a  class="item-author text-muted h-1x" asp-controller="ArtistProfile" asp-action="Index">@song.Artist.Name</a>
+											
 										</div>
 										<div class="item-action dropdown">
 											<div class="d-flex align-items-center">

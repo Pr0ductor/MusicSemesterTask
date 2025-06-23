@@ -13,7 +13,6 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Application/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -107,7 +106,6 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Core/MusicSemesterTask.Domain/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -198,7 +196,6 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Infrastructure/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -298,7 +295,6 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Infrastructure/MusicSemesterTask.Persistence/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
@@ -401,7 +397,6 @@
         "packagesPath": "/Users/denis/.nuget/packages/",
         "outputPath": "/Users/denis/RiderProjects/MusicSemesterTask/Shared/MusicSemesterTask.Shared/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/denis/.nuget/NuGet/NuGet.Config"
         ],
