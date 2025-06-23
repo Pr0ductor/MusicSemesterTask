@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/ArtistProfile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXJ0aXN0UHJvZmlsZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/Views/Artists/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXJ0aXN0cy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

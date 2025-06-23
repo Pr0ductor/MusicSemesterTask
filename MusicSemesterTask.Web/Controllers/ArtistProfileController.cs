@@ -1,32 +1,17 @@
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MusicSemesterTask.Application.Features.Artists.Queries;
-using MusicSemesterTask.Application.Features.Songs.Queries;
-using MusicSemesterTask.Application.Features.Profile.Queries;
 using MusicSemesterTask.Application.Interfaces.Services;
-using MusicSemesterTask.Domain.Enums;
-using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Persistence.Contexts;
-using MusicSemesterTask.Web.Models;
 
 namespace MusicSemesterTask.Web.Controllers;
 
-[Authorize]
-public class ProfileController : Controller
+public class ArtistProfileController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly IAuthService _authService;
     private readonly IMediator _mediator;
-
-    public ProfileController(IAuthService authService, IMediator mediator, ApplicationDbContext context)
-    {
-        _authService = authService ?? throw new ArgumentNullException(nameof(authService));
-        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-    }
-
+    
+    
     [HttpGet]
     public async Task<IActionResult> Index(int? id = null)
     {

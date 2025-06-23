@@ -21,7 +21,7 @@ public class GetUserSongsQueryHandler : IRequestHandler<GetUserSongsQuery, List<
         var query = _context.Songs
             .Include(s => s.Artist)
             .Include(s => s.Likes)
-            .Where(s => s.ArtistId == 3) // Хардкодим ID артиста "Мартин" временно
+            .Where(s => s.ArtistId.ToString() == request.UserId) // Хардкодим ID артиста "Мартин" временно
             .Select(s => new GetUserSongsQueryResult
             {
                 Id = s.Id,
