@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicSemesterTask.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fda5382ba1c8f0d225676ca6117cd0f8ca5e7696")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11b69f86cdf012f6f46c977d8487b57f20af853a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicSemesterTask.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicSemesterTask.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

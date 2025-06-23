@@ -9,6 +9,7 @@ using MusicSemesterTask.Persistence.Contexts;
 using BC = BCrypt.Net.BCrypt;
 using Microsoft.EntityFrameworkCore;
 using MusicSemesterTask.Domain.Enums;
+using Microsoft.AspNetCore.Http;
 
 namespace MusicSemesterTask.Infrastructure.Services;
 
@@ -16,11 +17,13 @@ public class AuthService : IAuthService
 {
     private readonly ApplicationDbContext _context;
     private readonly IConfiguration _configuration;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public AuthService(ApplicationDbContext context, IConfiguration configuration)
+    public AuthService(ApplicationDbContext context, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
     {
         _context = context;
         _configuration = configuration;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<(bool Success, string Message)> RegisterAsync(ApplicationUser user, string password)
@@ -160,5 +163,14 @@ public class AuthService : IAuthService
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public async Task<ApplicationUser?> GetCurrentUserAsync()
+    {
+        var userId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userId))
+            return null;
+
+        return await _context.Users.FirstOrDefaultAsync(u => u.Id.ToString() == userId);
     }
 }

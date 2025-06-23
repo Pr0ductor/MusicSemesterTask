@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RZIqDcCYN9k4cx0w805zi7WYZdEdXGm1SikLD7mTzyM=",
+  "Hash": "KL3v38sIj/ngmR/cTXX8gW2LcGr7O9AOKe8R1kc+lGg=",
   "Source": "MusicSemesterTask.Web",
   "BasePath": "_content/MusicSemesterTask.Web",
   "Mode": "Default",
@@ -1383,6 +1383,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/img/c9.jpg"
+    },
+    {
+      "Identity": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/question.png",
+      "SourceId": "MusicSemesterTask.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/",
+      "BasePath": "_content/MusicSemesterTask.Web",
+      "RelativePath": "assets/img/question.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/img/question.png"
     },
     {
       "Identity": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/js/site.js",

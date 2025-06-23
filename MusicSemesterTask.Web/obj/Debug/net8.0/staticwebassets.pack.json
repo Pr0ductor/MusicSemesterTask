@@ -285,6 +285,10 @@
       "PackagePath": "staticwebassets/assets/img/c9.jpg"
     },
     {
+      "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/img/question.png",
+      "PackagePath": "staticwebassets/assets/img/question.png"
+    },
+    {
       "Id": "/Users/denis/RiderProjects/MusicSemesterTask/MusicSemesterTask.Web/wwwroot/assets/js/site.js",
       "PackagePath": "staticwebassets/assets/js/site.js"
     },

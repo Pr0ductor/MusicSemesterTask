@@ -14,7 +14,7 @@
                     <div class="media">
                         <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
                         <div class="media-action media-action-overlay">
-                            <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
+                            <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
                                 @{
                                     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                                     var isLiked = !string.IsNullOrEmpty(userId) && song.Likes.Any(l => l.UserId == int.Parse(userId));
@@ -46,23 +46,5 @@
         if (typeof feather !== 'undefined') {
             feather.replace();
         }
-        
-        // Обработчик лайков
-        $('.btn-icon i[data-feather="heart"]').parent().click(function(e) {
-            e.preventDefault();
-            var button = $(this);
-            var songId = button.closest('[data-id]').data('id');
-            
-            $.ajax({
-                url: '@Url.Action("Like", "Songs")',
-                type: 'POST',
-                data: { songId: songId },
-                success: function(response) {
-                    if (response.success) {
-                        button.find('i').toggleClass('active-danger');
-                    }
-                }
-            });
-        });
     });
 </script> 

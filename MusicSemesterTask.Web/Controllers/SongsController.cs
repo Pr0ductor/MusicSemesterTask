@@ -76,7 +76,17 @@ namespace MusicSemesterTask.Web.Controllers
         [IgnoreAntiforgeryToken]
         public async Task<IActionResult> Like(int songId)
         {
-            var command = new LikeSongCommand { SongId = songId };
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            var command = new LikeSongCommand 
+            { 
+                SongId = songId,
+                UserId = userId
+            };
             var result = await _mediator.Send(command);
             return Json(new { success = result });
         }
