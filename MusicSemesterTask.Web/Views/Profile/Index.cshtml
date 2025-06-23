@@ -284,70 +284,41 @@
               
               <div class="tab-pane fade" id="liked">
                 <div class="row list-row">
-                  <div class="col-6" data-id="303988181" data-category="Pop" data-tag="Australia" data-source="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/fb/0c/fc/fb0cfc4d-dfc7-18fc-89c9-f2302a9fc65a/mzaf_9146754008516582895.plus.aac.p.m4a">
-                    <div class="list-item r">
-                      <div class="media col-4">
-                        <a href="music.detail.html#303988181" class="ajax media-content" style="background-image:url(../assets/img/c14.jpg)"></a>
-                        <div class="media-action media-action-overlay">
-                          <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class><i data-feather="heart" class="active-danger"></i></button>
-                          <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                          <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown"><i data-feather="more-horizontal"></i></button>
-                          <div class="dropdown-menu dropdown-menu-right"></div>
+                  @if (Model.LikedSongs != null && Model.LikedSongs.Any())
+                  {
+                    @foreach (var song in Model.LikedSongs)
+                    {
+                      <div class="col-6" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Country" data-source="@song.AudioUrl">
+                        <div class="list-item r">
+                          <div class="media col-4">
+                            <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
+                            <div class="media-action media-action-overlay">
+                              <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
+                                <i data-feather="heart" class="active-danger"></i>
+                              </button>
+                              <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
+                              <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+                                <i data-feather="more-horizontal"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right"></div>
+                            </div>
+                          </div>
+                          <div class="list-content text-center">
+                            <div class="list-body">
+                              <a href="#" class="list-title title ajax h-1x">@song.Title</a>
+                              <a href="#" class="list-subtitle d-block text-muted subtitle ajax h-1x">@song.Artist?.Name</a>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="list-content text-center">
-                        <div class="list-body"><a href="music.detail.html#303988181" class="list-title title ajax h-1x">Cheap Thrills </a><a href="music.artist.html#303988181" class="list-subtitle d-block text-muted subtitle ajax h-1x">Sia</a></div>
-                      </div>
+                    }
+                  }
+                  else
+                  {
+                    <div class="text-center mt-4 w-100">
+                      <p class="text-muted">У вас пока нет лайкнутых треков</p>
                     </div>
-                  </div>
-                  <div class="col-6" data-id="119205187" data-category="all" data-tag="all" data-source="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview128/v4/37/14/59/37145906-fb86-aca7-9b10-7477644cb56a/mzaf_168581445824271384.plus.aac.p.m4a">
-                    <div class="list-item r">
-                      <div class="media col-4">
-                        <a href="music.detail.html#119205187" class="ajax media-content" style="background-image:url(../assets/img/c8.jpg)"></a>
-                        <div class="media-action media-action-overlay">
-                          <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class><i data-feather="heart" class="active-danger"></i></button>
-                          <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                          <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown"><i data-feather="more-horizontal"></i></button>
-                          <div class="dropdown-menu dropdown-menu-right"></div>
-                        </div>
-                      </div>
-                      <div class="list-content text-center">
-                        <div class="list-body"><a href="music.detail.html#119205187" class="list-title title ajax h-1x">Cheerleader (Felix Jaehn Remix) </a><a href="music.artist.html#119205187" class="list-subtitle d-block text-muted subtitle ajax h-1x">Omi</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6" data-id="263013345" data-category="Electronic" data-tag="all" data-source="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music1/v4/f2/52/4b/f2524bfb-d546-affa-e89f-f165a1c99cb0/mzaf_2577649036970470026.plus.aac.p.m4a">
-                    <div class="list-item r">
-                      <div class="media col-4">
-                        <a href="music.detail.html#263013345" class="ajax media-content" style="background-image:url(../assets/img/c2.jpg)"></a>
-                        <div class="media-action media-action-overlay">
-                          <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class><i data-feather="heart" class="active-danger"></i></button>
-                          <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                          <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown"><i data-feather="more-horizontal"></i></button>
-                          <div class="dropdown-menu dropdown-menu-right"></div>
-                        </div>
-                      </div>
-                      <div class="list-content text-center">
-                        <div class="list-body"><a href="music.detail.html#263013345" class="list-title title ajax h-1x">Reality </a><a href="music.artist.html#263013345" class="list-subtitle d-block text-muted subtitle ajax h-1x">Lost Frequencies Feat. Janieck Devy</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6" data-id="92570808" data-category="Pop" data-tag="Canada" data-source="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/64/3d/c1/643dc113-29d1-08de-78e2-a4ab4c3f1730/mzaf_5420937162202173294.plus.aac.p.m4a">
-                    <div class="list-item r">
-                      <div class="media col-4">
-                        <a href="music.detail.html#92570808" class="ajax media-content" style="background-image:url(../assets/img/c1.jpg)"></a>
-                        <div class="media-action media-action-overlay">
-                          <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class><i data-feather="heart" class="active-danger"></i></button>
-                          <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                          <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown"><i data-feather="more-horizontal"></i></button>
-                          <div class="dropdown-menu dropdown-menu-right"></div>
-                        </div>
-                      </div>
-                      <div class="list-content text-center">
-                        <div class="list-body"><a href="music.detail.html#92570808" class="list-title title ajax h-1x">Rude </a><a href="music.artist.html#92570808" class="list-subtitle d-block text-muted subtitle ajax h-1x">Magic!</a></div>
-                      </div>
-                    </div>
-                  </div>
+                  }
                 </div>
               </div>
               <div class="tab-pane fade" id="following">

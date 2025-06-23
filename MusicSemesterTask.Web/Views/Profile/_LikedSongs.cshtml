@@ -1,0 +1,33 @@
+@using System.Security.Claims
+@model List<MusicSemesterTask.Domain.Entities.Song>
+
+<div class="tab-pane fade" id="liked">
+    <div class="row list-row">
+        @foreach (var song in Model)
+        {
+            <div class="col-6" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Country" data-source="@song.AudioUrl">
+                <div class="list-item r">
+                    <div class="media col-4">
+                        <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
+                        <div class="media-action media-action-overlay">
+                            <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
+                                <i data-feather="heart" class="active-danger"></i>
+                            </button>
+                            <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
+                            <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+                                <i data-feather="more-horizontal"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right"></div>
+                        </div>
+                    </div>
+                    <div class="list-content text-center">
+                        <div class="list-body">
+                            <a href="#" class="list-title title ajax h-1x">@song.Title</a>
+                            <a href="#" class="list-subtitle d-block text-muted subtitle ajax h-1x">@song.Artist?.Name</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div> 
