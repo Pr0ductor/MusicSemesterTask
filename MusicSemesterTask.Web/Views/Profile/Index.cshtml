@@ -218,7 +218,7 @@
                 {
                   <li class="nav-item"><a class="nav-link active" href="#tracks" data-toggle="tab">Tracks</a></li>
                 }
-                <li class="nav-item"><a class="nav-link" href="#liked" data-toggle="tab">Liked</a></li>
+                <li class="nav-item"><a class="nav-link" href="#liked-songs" data-toggle="tab">Liked</a></li>
                 <li class="nav-item"><a class="nav-link" href="#following" data-toggle="tab">Following</a></li>
               </ul>
             </div>
@@ -281,17 +281,16 @@
                 </div>
               </div>
               
-              
-              <div class="tab-pane fade" id="liked">
+              <div class="tab-pane fade" id="liked-songs">
                 <div class="row list-row">
                   @if (Model.LikedSongs != null && Model.LikedSongs.Any())
                   {
                     @foreach (var song in Model.LikedSongs)
                     {
-                      <div class="col-6" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Country" data-source="@song.AudioUrl">
+                      <div class="col-12" data-id="@song.Id" data-category="@song.Genre" data-tag="@song.Country" data-source="@song.AudioUrl">
                         <div class="list-item r">
-                          <div class="media col-4">
-                            <a href="#" class="ajax media-content" style="background-image:url(@song.CoverUrl)"></a>
+                          <div class="media">
+                            <a href="#" class="ajax media-content" style="background-image:url(@(song.CoverUrl ?? "../assets/img/c0.jpg"))"></a>
                             <div class="media-action media-action-overlay">
                               <button class="btn btn-icon no-bg no-shadow hide-row" onclick="toggleLike(@song.Id, this)">
                                 <i data-feather="heart" class="active-danger"></i>
@@ -307,6 +306,18 @@
                             <div class="list-body">
                               <a href="#" class="list-title title ajax h-1x">@song.Title</a>
                               <a href="#" class="list-subtitle d-block text-muted subtitle ajax h-1x">@song.Artist?.Name</a>
+                            </div>
+                          </div>
+                          <div class="list-action show-row">
+                            <div class="d-flex align-items-center">
+                              <div class="px-3 text-sm d-none d-md-block">@(song.Duration.ToString("mm\\:ss"))</div>
+                              <button class="btn btn-icon no-bg no-shadow" onclick="toggleLike(@song.Id, this)">
+                                <i data-feather="heart" class="active-danger"></i>
+                              </button>
+                              <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
+                                <i data-feather="more-horizontal"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right"></div>
                             </div>
                           </div>
                         </div>
@@ -413,9 +424,6 @@
                   </div>
                 </div>
               </div>
-              
-              
-              
             </div>
           </div>
         </div>

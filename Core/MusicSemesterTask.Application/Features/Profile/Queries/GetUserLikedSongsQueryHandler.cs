@@ -16,10 +16,19 @@ public class GetUserLikedSongsQueryHandler : IRequestHandler<GetUserLikedSongsQu
 
     public async Task<List<Song>> Handle(GetUserLikedSongsQuery request, CancellationToken cancellationToken)
     {
-        return await _context.Songs
-            .Include(s => s.Artist)
-            .Include(s => s.Likes)
-            .Where(s => s.Likes.Any(l => l.User.IdentityId == request.UserId))
+        // Сначала найдем пользователя по Id
+        var user = await _context.Users
+            .FirstOrDefaultAsync(u => u.Id.ToString() == request.UserId, cancellationToken);
+
+        if (user == null)
+            return new List<Song>();
+
+        // Теперь получим все лайкнутые песни для этого пользователя
+        return await _context.Likes
+            .Where(l => l.UserId == user.Id)
+            .Include(l => l.Song)
+                .ThenInclude(s => s.Artist)
+            .Select(l => l.Song)
             .ToListAsync(cancellationToken);
     }
 } 

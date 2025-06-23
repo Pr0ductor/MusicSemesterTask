@@ -6,6 +6,7 @@ using MusicSemesterTask.Application.Features.Songs.Queries;
 using MusicSemesterTask.Application.Features.Profile.Queries;
 using MusicSemesterTask.Application.Interfaces.Services;
 using MusicSemesterTask.Domain.Enums;
+using MusicSemesterTask.Domain.Entities;
 using MusicSemesterTask.Web.Models;
 
 namespace MusicSemesterTask.Web.Controllers;
@@ -39,8 +40,11 @@ public class ProfileController : Controller
                 
                 if (isArtist)
                 {
-                    songs = await _mediator.Send(new GetUserSongsQuery { UserId = id.ToString() });
+                    songs = await _mediator.Send(new GetUserSongsQuery { UserId = user.Id.ToString() });
                 }
+
+                // Получаем лайкнутые песни
+                var likedSongs = await _mediator.Send(new GetUserLikedSongsQuery { UserId = user.Id.ToString() });
                 
                 return View(new ProfileViewModel
                 {
@@ -49,7 +53,8 @@ public class ProfileController : Controller
                     UserName = user.UserName,
                     SongsCount = songs.Count,
                     IsCurrentUser = true,
-                    IsArtist = isArtist
+                    IsArtist = isArtist,
+                    LikedSongs = likedSongs
                 });
             }
             
@@ -68,7 +73,8 @@ public class ProfileController : Controller
                 UserName = artist.UserName,
                 SongsCount = artistSongs.Count,
                 IsCurrentUser = currentUser?.Id == id.Value,
-                IsArtist = true
+                IsArtist = true,
+                LikedSongs = new List<Song>() // Empty list for artist profiles
             });
         }
         catch (Exception ex)
